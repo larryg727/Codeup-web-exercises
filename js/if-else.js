@@ -24,7 +24,7 @@ if (camron > 200){
 } else {
     var camronPaid = camron;
 }
-console.log("Camron bought #" + camron + ".00 worth of products. Final payment: $" + camronPaid.toFixed(2));
+console.log("Camron bought $" + camron.toFixed(2) + " worth of products. Final payment: $" + camronPaid.toFixed(2));
 
 if (ryan > 200) {
     var ryanDisc = (ryan - 200) * .35;
@@ -33,7 +33,7 @@ if (ryan > 200) {
     ryanPaid = ryan;
 }
 
-console.log("Ryan bought #" + ryan + ".00 worth of products. Final payment: $" + ryanPaid.toFixed(2));
+console.log("Ryan bought $" + ryan.toFixed(2) + " worth of products. Final payment: $" + ryanPaid.toFixed(2));
 
 if (george > 200){
     var georgeDisc = (george - 200) * .35;
@@ -41,11 +41,11 @@ if (george > 200){
 }else {
     georgePaid = george
 }
-console.log("George bought #" + george + ".00 worth of products. Final payment: $" + georgePaid.toFixed(2));
+console.log("George bought $" + george.toFixed(2) + " worth of products. Final payment: $" + georgePaid.toFixed(2));
 
 
 
-var flipACoin = Math.floor(Math.random()* 2)
+var flipACoin = Math.floor(Math.random()* 2);
 
 var whatBuy = (flipACoin === 0) ? "Buy a car" : "Buy a house";
 console.log(whatBuy);
