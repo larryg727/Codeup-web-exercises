@@ -1,0 +1,96 @@
+#title {
+    text-align: center;
+    margin-top: 45px;
+}
+#logoLang_container {
+    height: 312px;
+    width: 546px;
+    margin: 0px auto;
+    text-align: center;
+    position: relative;
+    font-family: sans-serif;
+}
+#logoLang_container img {
+    vertical-align: middle;
+    padding-top: 70px;
+}
+
+#logoLang_container a {
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: large;
+}
+span {
+    font-size: small;
+}
+#english {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+    top: 10px;
+    left: 90px;
+}
+#espanol {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+    top: 10px;
+    right: 90px;
+}
+#deutsch {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+    top: 70px;
+    left: 30px;
+}
+#chinese {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+}
+#russian {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+    top: 135px;
+    left: 5px;
+}
+#french {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+    top: 135px;
+    right: 5px;
+}
+#italian {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+    bottom: 70px;
+    left: 30px;
+}
+#japanese {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+    bottom: 70px;
+    right: 30px;
+}
+#portugese {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+   bottom: 10px;
+    left: 90px;
+}
+#polish {
+    height: 42px;
+    width: 156px;
+    position: absolute;
+    bottom:10px;
+    right: 90px;
+}

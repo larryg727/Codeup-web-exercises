@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My First HTML Form</title>
+    </head>
+    <body>
+        <h1>User Login</h1>
+        <form method="POST" action="http://requestb.in/1m80d0e1">
+            <p>
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" placeholder="Username">
+            </p>
+            <p>
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Password">
+            </p>
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+        </form>
+        <h1>Compose an Email</h1>
+        <form method="post" action="http://requestb.in/1m80d0e1">
+            <p>
+                <label for="to">Send to:</label>
+                <input type="text" id="to" name="to">
+            </p>
+            <p>
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from">
+            </p>
+            <p>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject">
+            </p>
+            <p>
+                <label for="email_body">Compose Email here:</label>
+                <textarea name="email_body" id="email_body" cols="50" rows="20"></textarea>
+            </p>
+            <p>
+                <label for="copy">Save a copy to your sent folder</label>
+                <input  type="checkbox" id="copy" name="save_copy" value="yes" checked>
+            </p>
+            <p>
+                <button>Send Email</button>
+            </p>
+        </form>
+        <h1>Multiple Choice Test</h1>
+        <form method="post" action="http://requestb.in/1m80d0e1">
+            <p>What is the capitol of Texas?</p>
+
+            <input type="radio" id="a1" name="q1" value="Houston">
+            <label for="a1">Houston</label>
+
+             <input type="radio" id="a2" name="q1" value="Dallas">
+            <label for="a2">Dallas</label>
+
+             <input type="radio" id="a3" name="q1" value="Austin">
+            <label for="a3">Austin</label>
+
+             <input type="radio" id="a4" name="q1" value="San Antonio">
+            <label for="a4">San Antonio</label>
+
+            <p>How many states are in the United States</p>
+
+            <input type="radio" id="a1-2" name="q2" value="49">
+            <label for="a1-2">49</label>
+
+             <input type="radio" id="a2-2" name="q2" value="50">
+            <label for="a2-2">50</label>
+
+             <input type="radio" id="a3-2" name="q2" value="13">
+            <label for="a3-2">13</label>
+
+            <label>
+                <input type="radio" id="a4-2" name="q2" value="35">35</label>
+
+            <p>What days are considered the weekend?</p>
+
+            <input type="checkbox" id="a1-3" name="q3[]" value="saturday">
+            <label for="a1-3">Saturday</label>
+
+            <input type="checkbox" id="a2-3" name="q3[]" value="wednesday">
+            <label for="a2-3">Wednesday</label>
+
+            <input type="checkbox" id="a3-3" name="q3[]" value="sunday">
+            <label for="a3-3">Sunday</label>
+
+            <input type="checkbox" id="a4-3" name="q3[]" value="monday">
+            <label for="a4-3">Monday</label>
+            <br>
+            <label for="gamesyt">What gaming systems do you own?</label>
+            <select name="game_systems[]" id="gamesyt" multiple>
+                <option value="ps4">PS4</option>
+                <option value="xbox1">XBox One</option>
+                <option value="switch">Nintendo Switch</option>
+            </select>
+            <p>
+                <button>Submit Answers</button>
+            </p>
+
+        </form>
+        <h1>Select Testing</h1>
+        <form method="post" action="http://requestb.in/1m80d0e1">
+            <Label for="test">Do you understand this question?</Label>
+            <select name="understand" id="test">
+            <option value="1" selected>Yes</option>
+            <option value="0">No</option>
+            </select>
+            <button>Submit</button>
+        </form>
+    </body>
+    </html>

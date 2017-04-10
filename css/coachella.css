@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+nav li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 30px;
+}
+nav li:first-child{
+    margin-left: 280px;
+}
+#logo {
+
+    position: absolute;
+    left: 62px;
+    top: 28px;
+}
+nav {
+    padding: 15px;
+    position: relative;
+    font-size: 13px;
+}
+#searchIcon {
+    position: absolute;
+    top: 25px;
+    right: 240px;
+}
+#buttons a {
+    float: right;
+    clear: right;
+    border: 1px solid black;
+    margin-bottom: 5px;
+    width: 100px;
+    padding: 5px 0;
+    text-align: center;
+}
+#buttons {
+    position: absolute;
+    top: 5px;
+    right: 110px;
+}
+h1 {
+    text-align: center;
+    font-size: 45px;
+    height: 60px;
+}
+#message {
+    width: 1000px;
+    margin: auto;
+    font-size: 18px;
+    color: #808080;
+}
+#form_container {
+    background-color: #EEEEEE;
+    width: 1000px;
+    margin: auto;
+    padding: 50px;
+    font-size: 18px;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.input {
+    height: 35px;
+    width: 300px;
+    border: 1px solid black;
+}
+#form_container label {
+    font-size: 22px;
+}
+span {
+    color: #808080;
+    font-size: 12px;
+    margin-top: -20px;
+}
+p > span {
+    font-size: inherit;
+}
+button {
+    background-color: #FAA394;
+    color: #fff;
+    padding: 17px 20px;
+}
+#select_box {
+    height: 43px;
+    width: 148px;
+    font-size: 18px;
+}
+footer {
+    height: 125px;
+    padding:80px;
+
+}

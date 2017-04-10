@@ -1,0 +1,50 @@
+.box {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0px 50px 50px 0px;
+    float: left;
+    position: relative;
+}
+.box:nth-child(2n+1) {
+    clear: left;
+}
+
+#red {
+    background-color: red;
+}
+#orange {
+     background-color: orange;
+     
+ }#yellow {
+      background-color: yellow;
+
+   }
+#green {
+       background-color: green;
+
+   }
+#blue {
+        background-color: blue;
+        
+    }
+#violet {
+         background-color: violet;
+         
+     }
+h1 {
+    margin-bottom: 50px;
+}
+#ribbon {
+    position:fixed;
+    top: 0px;
+    right: 0px;
+}
+.arrow {
+    position: relative;
+    bottom: 100px;
+    left: 40px;
+}
