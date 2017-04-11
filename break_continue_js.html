@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Break Continue JS</title>
+</head>
+<body>
+
+
+</body>
+<script>
+
+    var randomOdd = Math.floor((Math.random()*50)+1);
+    if (randomOdd % 2 === 0) {
+
+    }else if(randomOdd % 2!==0){
+        console.log("Random odd number to skip is: " + randomOdd);
+
+    }
+    for (i =1; i < 50; i++){
+
+     if(i === randomOdd){
+        console.log("Yikes, Skipping number: " + i);
+    }
+    else if (i % 2 !== 0) {
+        console.log("Here is an odd number: " + i);
+    }
+
+    }
+
+
+</script>
+</html>
