@@ -9,15 +9,17 @@
 
 </body>
 <script>
-
-    var randomOdd = Math.floor((Math.random()*50)+1);
-    if (randomOdd % 2 === 0) {
-
-    }else if(randomOdd % 2!==0){
-        console.log("Random odd number to skip is: " + randomOdd);
-
+    "use strict";
+    for(var randomOdd ; ; ) {
+        var randomOdd = Math.floor((Math.random() * 50) + 1);
+        if (randomOdd % 2 === 0) {
+            continue;
+        } else if (randomOdd % 2 !== 0) {
+            console.log("Random odd number to skip is: " + randomOdd);
+            break;
+        }
     }
-    for (i =1; i < 50; i++){
+    for ( var i =1; i < 50; i++){
 
      if(i === randomOdd){
         console.log("Yikes, Skipping number: " + i);
