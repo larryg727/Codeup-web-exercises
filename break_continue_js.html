@@ -10,24 +10,40 @@
 </body>
 <script>
     "use strict";
-    for(var randomOdd ; ; ) {
+    while (true) {
         var randomOdd = Math.floor((Math.random() * 50) + 1);
-        if (randomOdd % 2 === 0) {
-            continue;
-        } else if (randomOdd % 2 !== 0) {
+//        if (randomOdd % 2 === 0) {
+//            continue;
+//        }
+        if (randomOdd % 2 !== 0) {
             console.log("Random odd number to skip is: " + randomOdd);
             break;
         }
     }
-    for ( var i =1; i < 50; i++){
+    for (var i = 1; i < 50; i++) {
 
-     if(i === randomOdd){
-        console.log("Yikes, Skipping number: " + i);
-    }
-    else if (i % 2 !== 0) {
-        console.log("Here is an odd number: " + i);
+        if (i === randomOdd) {
+            console.log("Yikes, Skipping number: " + i);
+        }
+        else if (i % 2 !== 0) {
+            console.log("Here is an odd number: " + i);
+        }
+
     }
 
+    console.log("**Extra Practice**")
+    var x = 0;
+    while (x < 100) {
+        x++;
+        if (x % 2 !== 0) {
+            continue;
+        } else {
+            console.log(x);
+        }
+        if (x === 100) {
+            console.log("times up");
+            break;
+        }
     }
 
 

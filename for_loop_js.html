@@ -7,9 +7,10 @@
 <body>
 
 <script>
+    var randomVariable = Math.floor(Math.random() * 10) +1;
     console.log("**Exercise 1**");
-    for (x = 7, y = 1; y <= 10; y++) {
-        console.log(x + "x" + y + "=" + (x * y));
+    for (y = 1; y <= 10; y++) {
+        console.log(randomVariable + "x" + y + "=" + (randomVariable * y));
     }
 
     console.log("**Exercise 2**");
@@ -29,7 +30,7 @@
 
     console.log("***Extra question**");
     console.log("<ul>");
-    for (li = 0; li < 5; li++){
+    for (var li = 0; li < 5; li++){
         var randomLi = Math.floor(Math.random() * 10) + 10;
         console.log("   <li>Random " + randomLi + "</li>");
     }
