@@ -62,70 +62,76 @@ function randomGenorator(max, min) {
 var randomTry = randomGenorator(20, 10);
 console.log(randomTry);
 
+function dateMachine() {
+    var inputDate;
+    do {
+        inputDate = prompt("Please enter a date to convert in the following format: \n dd/mm/yy");
+    } while (inputDate === null ||inputDate === "");
+    var dD;
+    var mM;
+    var yY;
 
-var inputDate= "06/09/17";
-var dD;
-var mM;
-var yY;
-
-function dateSeporator(date) {
-    var dateArray = date.split("/");
-    dD = dateArray[0];
-    mM = dateArray[1];
-    if (dateArray[2] > 25) {
-        yY = " 19" + dateArray[2];
-        return yY;
-    }else {
-        yY = " 20" + dateArray[2];
-        return yY;
-    }
-    return dD;
-    return mM;
-
-}
-
-dateSeporator(inputDate);
-
-
-function dateExtender(dd, mm, yy) {
-    switch (mm) {
-        case "01":
-            console.log("January " + dd + yy);
-            break;
-        case "02":
-            console.log("February " + dd + yy);
-            break;
-        case "03":
-            console.log("March " + dd + yy);
-            break;
-        case "04":
-            console.log("April " + dd + yy);
-            break;
-        ca
-            console.log("May " + dd + yy);
-            break;
-        case "06":
-            console.log("June " + dd + yy);
-            break;
-        case "07":
-            console.log("July " + dd + yy);
-            break;
-        case "08":
-            console.log("August " + dd + yy);
-            break;
-        case "09":
-            console.log("September " + dd + yy);
-            break;
-        case "10":
-            console.log("October " + dd + yy);
-            break;
-        case "11":
-            console.log("November " + dd + yy);
-            break;
-        case "12":
-            console.log("December " + dd  + yy);
-            break;
+    function dateSeporator(date) {
+        var dateArray = date.split("/");
+        dD = dateArray[0];
+        mM = dateArray[1];
+        if (dateArray[2] > 25) {
+            yY = " 19" + dateArray[2];
+            return yY;
+        } else {
+            yY = " 20" + dateArray[2];
+            return yY;
+        }
+        return dD;
+        return mM;
 
     }
+
+    dateSeporator(inputDate);
+
+
+    function dateExtender(dd, mm, yy) {
+        switch (mm) {
+            case "01":
+                alert("January " + dd + yy);
+                break;
+            case "02":
+                alert("February " + dd + yy);
+                break;
+            case "03":
+                alert("March " + dd + yy);
+                break;
+            case "04":
+                alert("April " + dd + yy);
+                break;
+            case "05":
+                alert("May " + dd + yy);
+                break;
+            case "06":
+                alert("June " + dd + yy);
+                break;
+            case "07":
+                alert("July " + dd + yy);
+                break;
+            case "08":
+                alert("August " + dd + yy);
+                break;
+            case "09":
+                alert("September " + dd + yy);
+                break;
+            case "10":
+                alert("October " + dd + yy);
+                break;
+            case "11":
+                alert("November " + dd + yy);
+                break;
+            case "12":
+                alert("December " + dd + yy);
+                break;
+
+        }
+    }
+
+    dateExtender(dD, mM, yY);
 }
-dateExtender(dD, mM, yY);
+dateMachine();
