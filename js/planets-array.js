@@ -44,8 +44,7 @@
     logPlanets();
 
     console.log('Using splice to add back the planet after "Earth".');
-    var addBackString = removed.join("");
-    planets.splice(planets.indexOf("Earth") + 1, 0, addBackString);
+    planets.splice(planets.indexOf("Earth") + 1, 0, removed[0]);
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
     logPlanets();
 
