@@ -20,7 +20,7 @@ names.forEach(function (element, index, array) {
     console.log("The name at spot " + index + " is " + element + " on the foreach loop");
     })
 
-
+//    -------meal planner---------
     console.log("**Bonus exercise**");
     var removed = []
     var meals = ["Pizza", "Hamburgers n Fries", "Chicken Salad", "Baked Salmon", "Fried Chicken", "Lasagna", "Sub-sandwich", "Spaghetti", "Fish sticks", "Grilled chicken", "BBQ", "Cereal"];
@@ -41,4 +41,33 @@ names.forEach(function (element, index, array) {
     mealPlan();
     console.log(meals);
 
+//-----------game------------
+
+function game(){
+
+
+    var count = [];
+    for (var i = 0; i < 3; i++) {
+        var coinToss = Math.floor(Math.random() * 2);
+        if (coinToss) {
+            count.push(1);
+            console.log("Strike");
+        } else {
+            count.push(0);
+            console.log("Score");
+        }
+    }
+
+        if ((count[0] === count[2]) && (count[1] === count[2]) && count[0] && count[1] && count[2]){
+            console.log("You lose.");
+        }else if((count[0] === count[2]) && (count[1] === count[2]) && !count[0] && !count[1] && !count[2]) {
+            console.log ("You Win!");
+        }else{
+            console.log("Please try again");
+        }
+}
+game();
+game();
+game();
+game();
 })();
