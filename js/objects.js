@@ -118,13 +118,49 @@
 // todo:
 // Loop through the array of books using .forEach and print out the specified information about each one.
 // start loop here
-    books.forEach(function(books, index){
+    books.forEach(function(book, index){
             console.log("Book #" + (index + 1));
-            console.log("Title: " + books.title);
-            console.log("Author: " + books.author.firstName + " " + books.author.lastName);
+            console.log("Title: " + book.title);
+            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
             console.log("---------------------------------------------------");
 // end loop here
 
         });
+//---------------bonus exercise-----------------
+    console.log("---------bonus exercise------------");
+
+    var pet = {
+        name: "Titus",
+        species: "Bulldog",
+        age: 2,
+        gender: "Male",
+        clean: true,
+        hungry: false,
+        sleepy: false,
+        happy: true,
+        petfood: 10,
+        soap: 3
+    };
+
+    function callPet(pet){
+        console.log("Hey " + pet.name + "! Come here boy.");
+    }
+    callPet(pet);
+    function playWithPet(pet){
+        pet.happy = true;
+        pet.hungry = true;
+        pet.clean = false;
+        console.log("Now your happy, but your also hungry and dirty");
+    }
+    playWithPet(pet);
+    function feedPet(pet){
+        pet.hungry = false;
+        pet.sleepy = true;
+        pet.petfood -= 1;
+        console.log("Now your full but your tired and only have " + pet.petfood + " servings of food left.");
+    }
+    feedPet(pet);
+
+
 
 })();
