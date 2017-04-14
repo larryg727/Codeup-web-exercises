@@ -14,7 +14,7 @@
     "use strict";
 
     var detonationTimer = 5;
-    var interval = setInterval(function(){updateTimer()}, 1000);
+    var interval = setInterval(updateTimer, 1000);
     // TODO: This function needs to be called once every second
     function updateTimer() {
         if (detonationTimer == 0) {
