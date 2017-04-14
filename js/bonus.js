@@ -31,13 +31,19 @@
 
     function wordCount(string) {
         var holder = string.split(" ");
+        holder.sort();
+        holder.forEach(function (word) {
+            var count = 0
+            for(var i = 0; i > holder.length; i++){
+                if (this.indexOf(word)){
+                    this.splice(this.indexOf(word), 1);
+                    count++
+                }
+                    return word + count;
+            }
 
-        // holder.forEach(function (word) {
-        //     var wordCountObject = {
-        //         word: 1
-        //     };
-        //     return wordCountObject;
-        // });
+
+        });
     }
 
     console.log(wordCount("I am testing"));
