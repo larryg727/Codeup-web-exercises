@@ -32,20 +32,23 @@
     function wordCount(string) {
         var holder = string.split(" ");
         holder.sort();
+
         holder.forEach(function (word) {
             var count = 0
             for(var i = 0; i > holder.length; i++){
-                if (this.indexOf(word)){
+                if (this.indexOf(word) >= 0){
                     this.splice(this.indexOf(word), 1);
                     count++
                 }
+
                     return word + count;
             }
 
 
         });
     }
-
+console.log(holder);
+        console.log(count);
     console.log(wordCount("I am testing"));
 
 })();
