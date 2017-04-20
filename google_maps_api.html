@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            width: 100%;
+            margin: 0;
+        }
+        #map {
+            width: 90%;
+            height: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<h1>Google Maps API Exercise</h1>
+<div id="map"></div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrAa4WKQBvUJMS6mVty9WE7xaOU9dV64Q"></script>
+<script type="text/javascript">
+    "use strict";
+    (function(){
+//        var TxRH = {
+//            lat: 29.596340,
+//            lng: -98.47295
+//        };
+        var restraunts = [
+            {"name": "Texas Roudhouse",
+            "lat": "29.596340",
+            "lng": "-98.47295"
+            },
+            {"name": "Makai",
+            "lat": "29.464688",
+            "lng": "-98.393285"
+            },
+            {"name": "L & L Hawaiian Grill",
+            "lat": "29.489354",
+            "lng": "-98.441817"
+            }
+        ];
+//        var restrauntsObj = JSON.parse(restraunts);
+//        var infowindow = new google.maps.InfoWindow({
+//            content: "Texas Roadhouse"
+//        });
+        var geocoder = new google.maps.Geocoder();
+        var mapOptions = {
+            zoom: 10
+        };
+
+
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        geocoder.geocode({address: "l & l hawaiian austin hwy"}, function (results, status) {
+
+            if (status === google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+            } else {
+                alert("Geocoding has failed. Status: " + status);
+            }
+        });
+//        var marker =  new google.maps.Marker({
+//            position: TxRH,
+//            map: map,
+//            animation:google.maps.Animation.DROP
+//        });
+//        google.maps.event.addListener(0, "click", function(){
+//        infowindow.open(map, 0)
+//        });
+
+
+         function marker (restraunt) {
+             var mark = new google.maps.Marker({
+                 position: {lat: parseFloat(restraunt.lat), lng: parseFloat(restraunt.lng)},
+                 map: map,
+                 animation: google.maps.Animation.DROP
+             });
+             console.log(restraunt.name);
+
+            var info = new google.maps.InfoWindow({
+                 content: restraunt.name
+             });
+             info.open(map, mark);
+         }
+         restraunts.forEach(function(restraunt){
+             marker(restraunt);
+        });
+    })();
+</script>
+
+</body>
+</html>
