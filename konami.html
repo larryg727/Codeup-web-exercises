@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami Code</title>
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <style>
+        body {
+            width: 100%;
+            margin: 0 auto;
+            background-image: url("img/insertCoinBG.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #000000;
+            font-family: 'VT323', monospace;
+        }
+        h1 {
+            text-align: center;
+            color: #04fc15;
+            font-size: 140px;
+        }
+        h2 {
+            text-align: right;
+            color: orange;
+            margin-top: 450px;
+            font-size: 50px;
+        }
+        span {
+            color: #04fc15;
+        }
+    </style>
+</head>
+<body>
+<h1>Konami Code</h1>
+<h2>LIVES REMAINING: 3x</h2>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    "use strict";
+    var codeEntered = [];
+    var konamiCode = "38,38,40,40,37,39,37,39,66,65";
+    $(document).keyup(function(event){
+        if (event.keyCode === 13) {
+            var codeString = codeEntered.join(",");//two identical arrays will not evaluate to true. so used string to compare
+            if (codeString === konamiCode) {
+                console.log("code entere  = " + codeEntered);//debug
+                console.log("konami Code = " + konamiCode);//debug
+                alert("You have added 30 lives!");
+                $("h2").html("LIVES REMAINING: <span>30X</span>");
+            } else {
+                console.log("code entere  = " + codeEntered);//degug
+                console.log("konami Code = " + konamiCode);//debug
+                alert("Sorry wrong code!");
+            }codeEntered = [];
+        }else {
+            codeEntered.push(event.keyCode);
+            console.log(codeEntered);
+        }
+    });
+
+</script>
+</body>
+</html>

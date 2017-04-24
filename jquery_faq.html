@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery FAQ</title>
+    <style>
+        .invisible {
+            display: none;
+        }
+        .highlighted {
+            background-color: #eeff00;
+        }
+    </style>
+</head>
+<body>
+<dl>
+    <dt>How many acres as the National Parks Service set aside for us to enjoy?</dt>
+    <dd class="invisible">51 million acres.</dd>
+     <dt>What was the first national park?</dt>
+    <dd class="invisible">Yellowstone</dd>
+     <dt>What is the first cave to be named a national park?</dt>
+    <dd class="invisible">Wind Cave National Park</dd>
+     <dt>What is the smallest natonal park?</dt>
+    <dd class="invisible">Hot Springs National Park which is about 5,500 acres.</dd>
+     <dt>Whats the difference between a national park and a national monument?</dt>
+    <dd class="invisible">A national park is chosen for their natural beauty, unique geological features, and unusual ecosystems. National monuments are chosen for their historical or archeological significance.</dd>
+     <dt>Are there any states without a national park?</dt>
+    <dd class="invisible">Yes, only one. Delaware</dd>
+     <dt>Which national park has the lowest elevation in the US?</dt>
+    <dd class="invisible">Death Valley National Park</dd>
+     <dt>How old is the Grand Canyon?</dt>
+    <dd class="invisible">About 1.75 billion years old.</dd>
+     <dt>What is the deepest lake in the US?</dt>
+    <dd class="invisible">Crater Lake.</dd>
+     <dt>Which national park holds a super volcano responsible for three of the world's six biggest eruptions?</dt>
+    <dd class="invisible">Yellowstone National park has the Yellowstone Caldera.</dd>
+
+</dl>
+
+<button id ="answers">Show answers!</button>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    "use strict";
+    $("document").ready(function(){
+        $("#answers").click(function(){
+            $("dd").toggleClass("invisible");
+        })
+        $("dt").click(function(){
+            $(this).toggleClass("highlighted");
+        })
+
+    })
+</script>
+</body>
+</html>
