@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JQuery FAQ</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <style>
         .invisible {
             display: none;
@@ -10,9 +11,43 @@
         .highlighted {
             background-color: #eeff00;
         }
+        ul {
+            display: none;
+        }
+        /*#modelFade {*/
+            /*display: none;*/
+        /*}*/
+        .alert {
+            display: none;
+        }
     </style>
 </head>
 <body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Please register with us.</h4>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Register Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    This page has successfully loaded
+</div>
+<div id="newsSignUp">
+    <h1>Would you like to sign up for our newsletter?</h1><span id="newsHide">X</span>
+</div>
+
+
 <h3>Yellowstone National Park</h3>
 <ul>
     <li>Nations first national park.</li>
@@ -60,10 +95,14 @@
 </dl>
 
 <button id ="answers">Show answers!</button>
+
 <script src="js/jquery-2.2.4.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script>
     "use strict";
     $("document").ready(function(){
+        $(".alert").show();
+
         $("#answers").click(function(){
             $("dd").toggleClass("invisible");
         });
@@ -78,11 +117,19 @@
         });
         $("h3").click(function(){
             $(this).next().css("font-weight", "bold");
+            $(this).next().slideToggle(700);
         });
 
         $("li").click(function(){
             $(this).parent().children().first().css("color", "blue");
+        });
+        $("#newsHide").click(function(){
+            $(this).parent().hide();
         })
+        setTimeout(function(){
+            $("#myModal").modal("show");
+        }, 8000);
+
     })
 </script>
 </body>
