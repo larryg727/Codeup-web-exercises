@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic-Tac-Toe</title>
+    <style>
+        button {
+            width: 60px;
+            height: 60px;
+            background-color: grey;
+            margin: 2px 0;
+            color: white;
+            font-size: 50px;
+            line-height: 60px;
+        }
+        #gameArea {
+            background-color: #04fc15;
+            margin: 0 auto;
+            width: 188px;
+        }
+    </style>
+</head>
+<body>
+<div id="gameArea">
+    <button id="1"></button>
+    <button id="2"></button>
+    <button id="3"></button><br>
+    <button id="4"></button>
+    <button id="5"></button>
+    <button id="6"></button><br>
+    <button id="7"></button>
+    <button id="8"></button>
+    <button id="9"></button>
+</div>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var turn;
+        var i = 1;
+        $("button").click(function(){
+            if(i > 9) {
+                alert("GAME OVER");
+            }else{
+                if (i % 2 == 0) {
+                    turn = "X"
+                } else {
+                    turn = "O"
+                }
+                $(this).html(turn);
+                i++;
+            }
+
+
+          });
+
+
+    })
+</script>
+</body>
+</html>
