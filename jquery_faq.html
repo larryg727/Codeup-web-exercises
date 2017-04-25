@@ -13,6 +13,28 @@
     </style>
 </head>
 <body>
+<h3>Yellowstone National Park</h3>
+<ul>
+    <li>Nations first national park.</li>
+    <li>Has more than 290 active waterfalls.</li>
+    <li>Home of Old Faithful geyser which erupts every 92 minutes on average.</li>
+    <li>Has 1000 to 3000 earthquakes annually.</li>
+</ul>
+<h3>Grand Canyon</h3>
+<ul>
+    <li>At its widest the Grand Canyon stretches 18 miles across.</li>
+    <li>At its narrowest the Grand Canyon stretches 4 miles across</li>
+    <li>It is around 6000 feet deep.</li>
+    <li>The Colorado river runs through it.</li>
+</ul>
+<h3>Acadia National Park</h3>
+<ul>
+    <li>There are 26 mountains in the park</li>
+    <li>Was established in 1919.</li>
+    <li>20% of the park is classified as wetlands.</li>
+    <li>Cadillac Mountain located within the park os the forst place to see the sunrise in the US.</li>
+</ul>
+<button id="last">Last Fact!</button>
 <dl>
     <dt>How many acres as the National Parks Service set aside for us to enjoy?</dt>
     <dd class="invisible">51 million acres.</dd>
@@ -44,11 +66,23 @@
     $("document").ready(function(){
         $("#answers").click(function(){
             $("dd").toggleClass("invisible");
-        })
+        });
         $("dt").click(function(){
             $(this).toggleClass("highlighted");
-        })
+        });
 
+        $("#last").click(function(){
+            $("ul").each(function(){
+            $(this).children().last().css("background-color", "yellow");
+        });
+        });
+        $("h3").click(function(){
+            $(this).next().css("font-weight", "bold");
+        });
+
+        $("li").click(function(){
+            $(this).parent().children().first().css("color", "blue");
+        })
     })
 </script>
 </body>
