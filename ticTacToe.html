@@ -34,6 +34,7 @@
             text-align: center;
             font-size: 80px;
             color: #1a5c80;
+            margin-top: 15px;
         }
         .button {
             width: 100px;
@@ -85,107 +86,193 @@
         var turn;
         var i = 1;
         var up;
-
-
-        $(".button").click(function() {
-            var current = $(this).children().text();
-            var b1 = $("#1").text();
-            var b2 = $("#2").text();
-            var b3 = $("#3").text();
-            var b4 = $("#4").text();
-            var b5 = $("#5").text();
-            var b6 = $("#6").text();
-            var b7 = $("#7").text();
-            var b8 = $("#8").text();
-            var b9 = $("#9").text();
-            var wonYet = $("#winner").css("display");
-            console.log(wonYet);
-            function checkWin(){
-                if (b1 !== ''){
-                    if (b1 === b2 && b1=== b3){
-                        $("#1, #2, #3").addClass("winningTiles");
-                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
-                        $("#winner, #reset").slideDown();
-                        $("h2").css("display", "none")
-                    }else if (b1 === b4 && b1 === b7) {
-                        $("#1, #4, #7").addClass("winningTiles");
-                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
-                        $("#winner, #reset").slideDown();
-                        $("h2").css("display", "none")
-                    }else if (b1 === b5 && b1===b9){
-                        $("#1, #5, #9").addClass("winningTiles");
-                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
-                        $("#winner, #reset").slideDown();
-                        $("h2").css("display", "none")
-                    }
+        var b1 = $("#1").text();
+        var b2 = $("#2").text();
+        var b3 = $("#3").text();
+        var b4 = $("#4").text();
+        var b5 = $("#5").text();
+        var b6 = $("#6").text();
+        var b7 = $("#7").text();
+        var b8 = $("#8").text();
+        var b9 = $("#9").text();
+        function aIntel (){
+            if (b5 !== '') {
+                switch (b5) {
+                    case b1:
+                        $("#b9").text('O');
+                        break;
+                    case b2:
+                        $("#b8").text('O');
+                        break;
+                    case b3:
+                        $("#b7").text('O');
+                        break;
+                    case b4:
+                        $("#b6").text('O');
+                        break;
+                    case b6:
+                        $("#b4").text('O');
+                        break;
+                    case b7:
+                        $("#b3").text('O');
+                        break;
+                    case b8:
+                        $("#b2").text('O');
+                        break;
+                    case b9:
+                        $("#b1").text('O');
+                        break;
                 }
-                if (b2 !== ''){
-                    if(b2===b5 && b2===b8){
-                        $("#5, #2, #8").addClass("winningTiles");
-                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
-                        $("#winner, #reset").slideDown();
-                        $("h2").css("display", "none")
-                    }
+            }else if(b2 !== ''){
+                switch (b2) {
+                    case b1:
+                        $("#b3").text('O');
+                        break;
+                    case b3:
+                        $("#b1").text('O');
+                        break;
                 }
-                if(b3 !== ''){
-                    if (b3===b5 && b3===b7){
-                        $("#5, #7, #3").addClass("winningTiles");
-                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
-                        $("#winner, #reset").slideDown();
-                        $("h2").css("display", "none")
-                    }else if(b3===b6 && b3===b9){
-                        $("#6, #9, #3").addClass("winningTiles");
-                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
-                        $("#winner, #reset").slideDown();
-                        $("h2").css("display", "none")
-                    }
+            }else if(b4 !== ''){
+                switch (b4){
+                    case b1:
+                        $("#b7").text('O');
+                        break;
+                    case b7:
+                        $("#b1").text('O');
+                        break;
                 }
-                if (b4 !== ''){
-                    if (b4===b5 && b4===b6){
-                        $("#4, #5, #6").addClass("winningTiles");
-                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
-                        $("#winner, #reset").slideDown();
-                        $("h2").css("display", "none")
-                    }
+            }else if(b6 !== ''){
+                switch (b6){
+                    case b3:
+                        $("#b9").text('O');
+                        break;
+                    case b9:
+                        $("#b3").text('O');
+                        break;
                 }
-                if (b7 !== ''){
-                    if (b7===b8 && b7===b9){
-                        $("#7, #8, #9").addClass("winningTiles");
-                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
-                        $("#winner, #reset").slideDown();
-                        $("h2").css("display", "none")
-                    }
+            }else if(b8 !== ''){
+                switch (b8){
+                    case b7:
+                        $("#b9").text('O');
+                        break;
+                    case b9:
+                        $("#b7").text('O');
+                        break;
                 }
+            }else{
+                $("#b5").text('O');
             }
+        }
+//        for (i=1; i<=9; i++) {
+//            console.log(i);
+//            if (i % 2 === 0) {
+//                aIntel();
+//            }
 
+            $(".button").click(function () {
 
-
-       if(i <9 && wonYet === 'none') {
-           checkWin()
-                if (!current){
-                if (i % 2 === 0) {
-                    turn = "O";
-                    up = "X";
-                } else {
-                    turn = "X";
-                    up = "O";
+                var current = $(this).children().text();
+                b1 = $("#1").text();
+                b2 = $("#2").text();
+                b3 = $("#3").text();
+                b4 = $("#4").text();
+                b5 = $("#5").text();
+                b6 = $("#6").text();
+                b7 = $("#7").text();
+                b8 = $("#8").text();
+                b9 = $("#9").text();
+                var wonYet = $("#winner").css("display");
+                console.log(wonYet);
+                function checkWin() {
+                    if (b1 !== '') {
+                        if (b1 === b2 && b1 === b3) {
+                            $("#1, #2, #3").addClass("winningTiles");
+                            $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                            $("#winner, #reset").slideDown();
+                            $("h2").css("display", "none")
+                        } else if (b1 === b4 && b1 === b7) {
+                            $("#1, #4, #7").addClass("winningTiles");
+                            $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                            $("#winner, #reset").slideDown();
+                            $("h2").css("display", "none")
+                        } else if (b1 === b5 && b1 === b9) {
+                            $("#1, #5, #9").addClass("winningTiles");
+                            $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                            $("#winner, #reset").slideDown();
+                            $("h2").css("display", "none")
+                        }
+                    }
+                    if (b2 !== '') {
+                        if (b2 === b5 && b2 === b8) {
+                            $("#5, #2, #8").addClass("winningTiles");
+                            $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                            $("#winner, #reset").slideDown();
+                            $("h2").css("display", "none")
+                        }
+                    }
+                    if (b3 !== '') {
+                        if (b3 === b5 && b3 === b7) {
+                            $("#5, #7, #3").addClass("winningTiles");
+                            $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                            $("#winner, #reset").slideDown();
+                            $("h2").css("display", "none")
+                        } else if (b3 === b6 && b3 === b9) {
+                            $("#6, #9, #3").addClass("winningTiles");
+                            $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                            $("#winner, #reset").slideDown();
+                            $("h2").css("display", "none")
+                        }
+                    }
+                    if (b4 !== '') {
+                        if (b4 === b5 && b4 === b6) {
+                            $("#4, #5, #6").addClass("winningTiles");
+                            $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                            $("#winner, #reset").slideDown();
+                            $("h2").css("display", "none")
+                        }
+                    }
+                    if (b7 !== '') {
+                        if (b7 === b8 && b7 === b9) {
+                            $("#7, #8, #9").addClass("winningTiles");
+                            $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                            $("#winner, #reset").slideDown();
+                            $("h2").css("display", "none")
+                        }
+                    }
                 }
-                $(this).children().animate({
-                    "font-size": "107px"
-                },1000);
-                $(this).children().html(turn);
 
-                $("h2").html("<span>" + up + "</span>" + "'s are up");
-                    i++;
 
-            }}else{
-           $("h2").html("<span>Draw!</span><br>Game Over");
-       }
+                if (i < 10 && wonYet === 'none') {
+                    checkWin();
+                    if (!current) {
+                        if (i % 2 === 0) {
+                            turn = "O";
+                            up = "X";
 
-          });
+                        } else {
+                            turn = "X";
+                            up = "O";
+                        }
+                        $(this).children().animate({
+                            "font-size": "107px"
+                        }, 1000, aIntel());
+                        $(this).children().html(turn);
+
+                        $("h2").html("<span>" + up + "</span>" + "'s are up");
+                        i++;
+                    }
+                } else {
+                    $("#reset").slideDown();
+                    $("h2").html("<span>Draw!</span><br>Game Over");
+                }
+
+            });
+//        }
         $("#reset").click(function(){
            location.reload();
         })
+
+
 
     })
 </script>
