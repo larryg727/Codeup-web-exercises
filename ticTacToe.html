@@ -9,6 +9,24 @@
             font-size: 100px;
             color: #1a5c80;
         }
+        #winner {
+            display: none;
+            margin-top: 15px;
+        }
+        #reset {
+            display: none;
+            text-align: center;
+            background-color: #1a5c80;
+            color: #04fc15;
+            font-size: 25px;
+            margin-top: 15px;
+
+        }
+        .winningTiles {
+            background-color: #04fc15;
+            color: #1a5c80;
+        }
+
         span {
             color: #04fc15;
         }
@@ -27,6 +45,11 @@
             line-height: 102px;
             text-align: center;
             float: left;
+
+        }
+        #winBox {
+            width: 100%;
+            text-align: center;
 
         }
 
@@ -51,6 +74,10 @@
     <div class="button"><div class="XO" id="8"></div></div>
     <div class="button"><div class="XO" id="9"></div></div>
 </div>
+<div id="winBox">
+<button id="reset">New Game</button>
+<h1 id="winner"><span>X</span> is the Winner</h1>
+</div>
 <h2><span>X</span>'s are up</h2>
 <script src="js/jquery-2.2.4.min.js"></script>
 <script>
@@ -58,22 +85,83 @@
         var turn;
         var i = 1;
         var up;
-        var b1 = $("#1").text();
-        var b2 = $("#2").text();
-        var b3 = $("#3").text();
-        var b4 = $("#4").text();
-        var b5 = $("#5").text();
-        var b6 = $("#6").text();
-        var b7 = $("#7").text();
-        var b8 = $("#8").text();
-        var b9 = $("#9").text();
+
 
         $(".button").click(function() {
             var current = $(this).children().text();
+            var b1 = $("#1").text();
+            var b2 = $("#2").text();
+            var b3 = $("#3").text();
+            var b4 = $("#4").text();
+            var b5 = $("#5").text();
+            var b6 = $("#6").text();
+            var b7 = $("#7").text();
+            var b8 = $("#8").text();
+            var b9 = $("#9").text();
+            var wonYet = $("#winner").css("display");
+            console.log(wonYet);
+            function checkWin(){
+                if (b1 !== ''){
+                    if (b1 === b2 && b1=== b3){
+                        $("#1, #2, #3").addClass("winningTiles");
+                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                        $("#winner, #reset").slideDown();
+                        $("h2").css("display", "none")
+                    }else if (b1 === b4 && b1 === b7) {
+                        $("#1, #4, #7").addClass("winningTiles");
+                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                        $("#winner, #reset").slideDown();
+                        $("h2").css("display", "none")
+                    }else if (b1 === b5 && b1===b9){
+                        $("#1, #5, #9").addClass("winningTiles");
+                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                        $("#winner, #reset").slideDown();
+                        $("h2").css("display", "none")
+                    }
+                }
+                if (b2 !== ''){
+                    if(b2===b5 && b2===b8){
+                        $("#5, #2, #8").addClass("winningTiles");
+                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                        $("#winner, #reset").slideDown();
+                        $("h2").css("display", "none")
+                    }
+                }
+                if(b3 !== ''){
+                    if (b3===b5 && b3===b7){
+                        $("#5, #7, #3").addClass("winningTiles");
+                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                        $("#winner, #reset").slideDown();
+                        $("h2").css("display", "none")
+                    }else if(b3===b6 && b3===b9){
+                        $("#6, #9, #3").addClass("winningTiles");
+                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                        $("#winner, #reset").slideDown();
+                        $("h2").css("display", "none")
+                    }
+                }
+                if (b4 !== ''){
+                    if (b4===b5 && b4===b6){
+                        $("#4, #5, #6").addClass("winningTiles");
+                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                        $("#winner, #reset").slideDown();
+                        $("h2").css("display", "none")
+                    }
+                }
+                if (b7 !== ''){
+                    if (b7===b8 && b7===b9){
+                        $("#7, #8, #9").addClass("winningTiles");
+                        $("#winner").html("<span>" + turn + "</span>" + " is the winner!");
+                        $("#winner, #reset").slideDown();
+                        $("h2").css("display", "none")
+                    }
+                }
+            }
 
-       if(i > 9) {
-                alert("GAME OVER");
-            }else{
+
+
+       if(i <9 && wonYet === 'none') {
+           checkWin()
                 if (!current){
                 if (i % 2 === 0) {
                     turn = "O";
@@ -84,14 +172,20 @@
                 }
                 $(this).children().animate({
                     "font-size": "107px"
-                },1500);
-
+                },1000);
                 $(this).children().html(turn);
+
                 $("h2").html("<span>" + up + "</span>" + "'s are up");
-                i++;
-                console.log(b1);
-            }}
+                    i++;
+
+            }}else{
+           $("h2").html("<span>Draw!</span><br>Game Over");
+       }
+
           });
+        $("#reset").click(function(){
+           location.reload();
+        })
 
     })
 </script>
