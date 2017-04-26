@@ -3,6 +3,7 @@
 <head>
     <title>Online Store</title>
     <link rel="stylesheet" href="css/ajax_store.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -21,16 +22,33 @@
     <tbody id="insertProducts"></tbody>
 
 </table>
-
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+              <span id="leftModal"></span><span id="rightModal"></span>
+            </div>
+            <div class="modal-footer">
+                <span id="centerModal"></span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Buy now</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-2.2.4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script>
 (function() {
     "use strict";
     // TODO: Create an ajax GET request for /data/inventory.json
     function getInventory() {
         $.get("data/inventory.json").done(function (data) {
-            console.log(data);
 
             // TODO: Take the data from inventory.json and append it to the products table
             //       HINT: Your data should come back as a JSON object; use console.log() to inspect
@@ -38,8 +56,8 @@
             //       HINT: You will want to target #insertProducts for your new HTML elements
             data.forEach(function (el, i) {
                 var catString = data[i].categories.join(", ");
-                $("#insertProducts").append("<tr><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>" + data[i].price + "</td><td>" + catString + "</td></tr>");
-                console.log(data[i].categories);
+                var priceDollar = data[i].price.toFixed(2);
+                $("#insertProducts").append("<tr class='toolClick'><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>$" + priceDollar + "</td><td>" + catString + "</td></tr>");
             })
         })
     }
@@ -48,7 +66,18 @@
     $("#refresh").click(function(){
           $("#insertProducts").html('');
           getInventory();
-        })
+        });
+    $("tbody").on("click", "tr", function(){
+        var toolName = $(this).children().first().text();
+        var toolQuan = $(this).children().first().next().text();
+        var toolPrice = $(this).children().last().prev().text();
+        var toolCat = $(this).children().last().text();
+        $("#myModalLabel").text(toolName);
+        $("#leftModal").text("Quantity remaining: " + toolQuan);
+        $("#rightModal").text(toolPrice);
+        $("#centerModal").text("Catagories: " + toolCat);
+        $('#myModal').modal('show');
+    })
     })();
 </script>
 

@@ -96,78 +96,159 @@
         var b8 = $("#8").text();
         var b9 = $("#9").text();
         function aIntel (){
-            if (b5 !== '') {
+            b1 = $("#1").text();
+            b2 = $("#2").text();
+            b3 = $("#3").text();
+            b4 = $("#4").text();
+            b5 = $("#5").text();
+            b6 = $("#6").text();
+            b7 = $("#7").text();
+            b8 = $("#8").text();
+            b9 = $("#9").text();
+            if (b5 !== ' ') {
                 switch (b5) {
                     case b1:
-                        $("#b9").text('O');
+                        $("#9").text('O');
+                        $("#9").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b2:
-                        $("#b8").text('O');
+                        $("#8").text('O');
+                        $("#8").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b3:
-                        $("#b7").text('O');
+                        $("#7").text('O');
+                        $("#7").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b4:
-                        $("#b6").text('O');
+                        $("#6").text('O');
+                        $("#6").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b6:
-                        $("#b4").text('O');
+                        $("#4").text('O');
+                        $("#4").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b7:
-                        $("#b3").text('O');
+                        $("#3").text('O');
+                        $("#3").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b8:
-                        $("#b2").text('O');
+                        $("#2").text('O');
+                        $("#2").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b9:
-                        $("#b1").text('O');
+                        $("#1").text('O');
+                        $("#1").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
+                    default:
+                        $("#1").text('O');
+                        $("#1").animate({
+                            "font-size": "107px"
+                        }, 1000);
                 }
-            }else if(b2 !== ''){
+            }else if(b2){
                 switch (b2) {
                     case b1:
-                        $("#b3").text('O');
+                        $("#3").text('O');
+                        $("#3").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b3:
-                        $("#b1").text('O');
+                        $("#1").text('O');
+                        $("#1").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
+                    default:
+                        $("#5").text('O');
+                        $("#5").animate({
+                            "font-size": "107px"
+                        }, 1000);
                 }
-            }else if(b4 !== ''){
+            }else if(b4){
                 switch (b4){
                     case b1:
-                        $("#b7").text('O');
+                        $("#7").text('O');
+                        $("#7").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b7:
-                        $("#b1").text('O');
+                        $("#1").text('O');
+                        $("#1").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
+                    default:
+                        $("#5").text('O');
+                        $("#5").animate({
+                            "font-size": "107px"
+                        }, 1000);
                 }
-            }else if(b6 !== ''){
+            }else if(b6){
                 switch (b6){
                     case b3:
-                        $("#b9").text('O');
+                        $("#9").text('O');
+                        $("#9").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b9:
-                        $("#b3").text('O');
+                        $("#3").text('O');
+                        $("#3").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
+                    default:
+                        $("#5").text('O');
+                        $("#5").animate({
+                            "font-size": "107px"
+                        }, 1000);
                 }
-            }else if(b8 !== ''){
+            }else if(b8){
                 switch (b8){
                     case b7:
-                        $("#b9").text('O');
+                        $("#9").text('O');
+                        $("#9").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
                     case b9:
-                        $("#b7").text('O');
+                        $("#7").text('O');
+                        $("#7").animate({
+                            "font-size": "107px"
+                        }, 1000);
                         break;
+                    default:
+                        $("#5").text('O');
+                        $("#5").animate({
+                            "font-size": "107px"
+                        }, 1000);
                 }
             }else{
-                $("#b5").text('O');
-            }
+                $("#5").text('O');
+                $("#5").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }i++;
         }
-//        for (i=1; i<=9; i++) {
-//            console.log(i);
-//            if (i % 2 === 0) {
-//                aIntel();
-//            }
+
 
             $(".button").click(function () {
 
@@ -255,7 +336,7 @@
                         }
                         $(this).children().animate({
                             "font-size": "107px"
-                        }, 1000, aIntel());
+                        }, 1000);
                         $(this).children().html(turn);
 
                         $("h2").html("<span>" + up + "</span>" + "'s are up");
@@ -265,9 +346,8 @@
                     $("#reset").slideDown();
                     $("h2").html("<span>Draw!</span><br>Game Over");
                 }
-
+setTimeout(aIntel, 1000);
             });
-//        }
         $("#reset").click(function(){
            location.reload();
         })

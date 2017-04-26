@@ -1,13 +1,14 @@
 body {
     margin: 0;
-
-    background-color: rgba(216, 216, 322, 0.66)
+    font-family: Times !important;
+    background-color: rgba(216, 216, 322, 0.66) !important;
 }
 h1 {
     margin: 15px auto;
-    font-size: 5em;
-    color: rgba(107, 196, 255, 1);
+    font-size: 5em !important;
+    color: rgba(107, 196, 255, 1) !important;
     text-align: center;
+    font-weight: bold !important;
 }
 h2 {
     margin: 15px auto;
@@ -25,13 +26,13 @@ p {
     margin: 15px auto;
 }
 thead {
-    font-size: 1.5em;
+    font-size: 1.7em;
 }
 table {
     border-collapse: collapse;
     width: 65%;
     margin: 15px auto;
-    text-align: center;
+    text-align: center !important;
 }
 
 table, th, td {
@@ -42,17 +43,52 @@ tr:nth-child(even){
 }
 th {
     background-color: coral;
+    text-align: center !important;
 }
 th, td {
-    padding: 5px;
+    padding: 8px !important;
 }
-button {
+td{
+    font-size: 1.2em;
+}
+#refresh {
     padding: 8px;
     background-color: rgb(255, 239, 91);
     font-size: 1.1em;
-    margin: 10px 42%;
+    margin: 10px 42% !important;
     width: 16%
 }
 tr:hover {
     background-color: rgba(255, 239, 91, 0.66);
+}
+#leftModal {
+    text-align: left !important;
+    font-weight: normal;
+    color: inherit;
+    font-size: 1.1em;
+}
+#rightModal{
+    text-align: right !important;
+    font-weight: bold;
+    float: right;
+    font-size: 1.2em;
+}
+#centerModal {
+    text-align: left !important;
+    font-weight: normal;
+    color: inherit;
+    float: left;
+    font-size: .9em;
+}
+#myModalLabel {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+.modal-header {
+    background-color: rgba(107, 196, 255, 0.41);
+}
+hr {
+    border-top: 2px dotted #6666ff;
+    width: 85%;
+    margin: 0 auto;
 }

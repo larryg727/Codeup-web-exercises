@@ -15,7 +15,7 @@
         $.get("data/blog.json").done(function(data){
             data.forEach(function(el, i){
                 var catString = data[i].categories.join(", ");
-                $("#posts").append("<h2>" + data[i].title + "</h2><p>" + data[i].content + "</p><p><span>Written on:</span> " + data[i].date + "</p><p><span>Catagories:</span> " + catString +"</p>");
+                $("#posts").append("<h2>" + data[i].title + "</h2><p>" + data[i].content + "</p><p><span>Written on:</span> " + data[i].date + "</p><p><span>Catagories:</span> " + catString +"</p><hr>");
             })
         })
     })();
