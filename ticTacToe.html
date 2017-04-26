@@ -4,56 +4,94 @@
     <meta charset="UTF-8">
     <title>Tic-Tac-Toe</title>
     <style>
-        button {
-            width: 60px;
-            height: 60px;
-            background-color: grey;
-            margin: 2px 0;
-            color: white;
-            font-size: 50px;
-            line-height: 60px;
+        h1 {
+            text-align: center;
+            font-size: 100px;
+            color: #1a5c80;
         }
+        span {
+            color: #04fc15;
+        }
+        h2 {
+            text-align: center;
+            font-size: 80px;
+            color: #1a5c80;
+        }
+        .button {
+            width: 100px;
+            height: 100px;
+            background-color: #1a5c80;
+            margin: 2px;
+            color: #04fc15;
+            font-size: 2px;
+            line-height: 102px;
+            text-align: center;
+            float: left;
+
+        }
+
         #gameArea {
             background-color: #04fc15;
             margin: 0 auto;
-            width: 188px;
+            width: 312px;
+            height: 312px;
         }
     </style>
 </head>
 <body>
+<h1>Tic-<span>Tac</span>-Toe</h1>
 <div id="gameArea">
-    <button id="1"></button>
-    <button id="2"></button>
-    <button id="3"></button><br>
-    <button id="4"></button>
-    <button id="5"></button>
-    <button id="6"></button><br>
-    <button id="7"></button>
-    <button id="8"></button>
-    <button id="9"></button>
+    <div class="button"><div class="XO" id="1"></div></div>
+    <div class="button"><div class="XO" id="2"></div></div>
+    <div class="button"><div class="XO" id="3"></div></div>
+    <div class="button"><div class="XO" id="4"></div></div>
+    <div class="button"><div class="XO" id="5"></div></div>
+    <div class="button"><div class="XO" id="6"></div></div>
+    <div class="button"><div class="XO" id="7"></div></div>
+    <div class="button"><div class="XO" id="8"></div></div>
+    <div class="button"><div class="XO" id="9"></div></div>
 </div>
-
+<h2><span>X</span>'s are up</h2>
 <script src="js/jquery-2.2.4.min.js"></script>
 <script>
     $(document).ready(function(){
         var turn;
         var i = 1;
-        $("button").click(function(){
-            if(i > 9) {
+        var up;
+        var b1 = $("#1").text();
+        var b2 = $("#2").text();
+        var b3 = $("#3").text();
+        var b4 = $("#4").text();
+        var b5 = $("#5").text();
+        var b6 = $("#6").text();
+        var b7 = $("#7").text();
+        var b8 = $("#8").text();
+        var b9 = $("#9").text();
+
+        $(".button").click(function() {
+            var current = $(this).children().text();
+
+       if(i > 9) {
                 alert("GAME OVER");
             }else{
-                if (i % 2 == 0) {
-                    turn = "X"
+                if (!current){
+                if (i % 2 === 0) {
+                    turn = "O";
+                    up = "X";
                 } else {
-                    turn = "O"
+                    turn = "X";
+                    up = "O";
                 }
-                $(this).html(turn);
+                $(this).children().animate({
+                    "font-size": "107px"
+                },1500);
+
+                $(this).children().html(turn);
+                $("h2").html("<span>" + up + "</span>" + "'s are up");
                 i++;
-            }
-
-
+                console.log(b1);
+            }}
           });
-
 
     })
 </script>
