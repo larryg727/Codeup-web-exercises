@@ -2,10 +2,13 @@
  * Created by larryg on 4/27/17.
  */
 "use strict";
-(function () {
+$(document).ready(function(){
+
     // retrieving initial default values of san antonio
     var lat = $("#lat").val();
     var lng = $("#lng").val();
+    var map;
+    var marker;
 
     function loadWeather() {
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
@@ -18,7 +21,7 @@
             console.log(data.city.name);
             data.list.forEach(function (el, i) {
                 var appendStr = '';
-                var idVar = "#day" + i;
+                var idVar = "#day" + i;   // to cycle between three weather divs
                 var maxTemp = Math.round(data.list[i].temp.max);
                 var minTemp = Math.round(data.list[i].temp.min);
                 var iconUrl = "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png";
@@ -28,21 +31,60 @@
                 appendStr += ("<p><strong>Humidity: </strong>" + data.list[i].humidity + "</p>");
                 appendStr += ("<p><strong>Wind: </strong>" + data.list[i].speed + "</p>");
                 appendStr += ("<p><strong>Pressure: </strong>" + data.list[i].pressure + "</p>");
-                $(idVar).append(appendStr);
+
+                $(idVar).html(appendStr);  //inserting new weather
             });
-            $("#currentCity").append(data.city.name);
+            $("#currentCity").html(data.city.name);  //update current city
         });
     }
-
+        // update map button
     $("#locSubmit").click(function(){
-        $("#currentCity").html("");
-        $("#day0, #day1, #day2").html("");
+        // clearWeather();
        lat = $("#lat").val();
        lng = $("#lng").val();
-       console.log(lat);
-       console.log(lng);
-       loadWeather();
+       loadWeather(lat, lng);
+       initializeMap(lat, lng);
     });
 
-    loadWeather(); // initial load
-})();
+       // map and marker function
+    function initializeMap() {
+        var mapOptions = {
+            center: {
+                lat: parseFloat(lat),
+                lng: parseFloat(lng)
+            },
+            zoom: 5,
+            disableDefaultUI: true,
+            zoomControl: true
+        };
+
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        marker = new google.maps.Marker({
+            position: {
+                lat: parseFloat(lat),
+                lng: parseFloat(lng)
+            },
+            map: map,
+            draggable: true
+        });
+
+
+        // drag event
+        google.maps.event.addListener(marker, 'dragend', function() {
+            lat = marker.position.lat();    // getting current lat of marker
+            lng = marker.position.lng();     // getting current lng of marker
+            $("#lat").val(lat.toFixed(6));    // updating inputs
+            $("#lng").val(lng.toFixed(6));
+            loadWeather();                      //updating weather and map
+            map.setCenter(marker.position);//resets center of map.. NOO reload!
+            map.setZoom(9);      // zoom in on city
+        });
+
+
+    }
+
+    initializeMap();  // initial map load
+    loadWeather(); // initial weather load
+
+
+});
