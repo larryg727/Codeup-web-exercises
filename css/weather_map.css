@@ -9,6 +9,7 @@ body {
 }
 #weatherContainer {
     background-color: darkblue;
+    margin-top: 10px;
 }
 .dayBox {
     background-color: #ffffff;

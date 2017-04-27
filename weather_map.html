@@ -8,7 +8,15 @@
 <body>
 <div id="appContainer">
     <h1>Weather Application</h1>
-    <h2>San Antonio</h2>
+
+    <h2 id="currentCity"></h2>
+
+    <label for="lat">Latitude</label>
+    <input type="text" id="lat" value="29.426803">
+    <label for="lng">Longitude</label>
+    <input type="text" id="lng" value="-98.489273">
+    <button id="locSubmit">Update</button>
+
     <div id="weatherContainer">
         <div class="dayBox" id="day0"></div>
         <div class="dayBox" id="day1"></div>
