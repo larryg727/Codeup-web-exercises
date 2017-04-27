@@ -57,7 +57,7 @@
             data.forEach(function (el, i) {
                 var catString = data[i].categories.join(", ");
                 var priceDollar = data[i].price.toFixed(2);
-                $("#insertProducts").append("<tr class='toolClick'><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>$" + priceDollar + "</td><td>" + catString + "</td></tr>");
+                $("#insertProducts").append("<tr><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>$" + priceDollar + "</td><td>" + catString + "</td></tr>");
             })
         })
     }

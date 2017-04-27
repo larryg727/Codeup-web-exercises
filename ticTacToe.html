@@ -105,148 +105,680 @@
             b7 = $("#7").text();
             b8 = $("#8").text();
             b9 = $("#9").text();
-            if (b5 !== ' ') {
-                switch (b5) {
-                    case b1:
-                        $("#9").text('O');
+
+            if ((b5 !== '') && b5 === b1){
+                $("#9").text('O');
                         $("#9").animate({
                             "font-size": "107px"
                         }, 1000);
-                        break;
-                    case b2:
-                        $("#8").text('O');
-                        $("#8").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b3:
-                        $("#7").text('O');
-                        $("#7").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b4:
-                        $("#6").text('O');
-                        $("#6").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b6:
-                        $("#4").text('O');
-                        $("#4").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b7:
-                        $("#3").text('O');
-                        $("#3").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b8:
-                        $("#2").text('O');
-                        $("#2").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b9:
-                        $("#1").text('O');
-                        $("#1").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    default:
-                        $("#1").text('O');
-                        $("#1").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                }
-            }else if(b2){
-                switch (b2) {
-                    case b1:
-                        $("#3").text('O');
-                        $("#3").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b3:
-                        $("#1").text('O');
-                        $("#1").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    default:
-                        $("#5").text('O');
-                        $("#5").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                }
-            }else if(b4){
-                switch (b4){
-                    case b1:
-                        $("#7").text('O');
-                        $("#7").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b7:
-                        $("#1").text('O');
-                        $("#1").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    default:
-                        $("#5").text('O');
-                        $("#5").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                }
-            }else if(b6){
-                switch (b6){
-                    case b3:
-                        $("#9").text('O');
-                        $("#9").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b9:
-                        $("#3").text('O');
-                        $("#3").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    default:
-                        $("#5").text('O');
-                        $("#5").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                }
-            }else if(b8){
-                switch (b8){
-                    case b7:
-                        $("#9").text('O');
-                        $("#9").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    case b9:
-                        $("#7").text('O');
-                        $("#7").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                        break;
-                    default:
-                        $("#5").text('O');
-                        $("#5").animate({
-                            "font-size": "107px"
-                        }, 1000);
-                }
-            }else{
+            }else if ((b5 !== '') && b5 === b9){
+                $("#1").text('O');
+                $("#1").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b5 !== '') && b5 === b3){
+                $("#7").text('O');
+                $("#7").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b5 !== '') && b5 === b7){
+                $("#3").text('O');
+                $("#3").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b5 !== '') && b5 === b2){
+                $("#8").text('O');
+                $("#8").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b5 !== '') && b5 === b8){
+                $("#2").text('O');
+                $("#2").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b5 !== '') && b5 === b4){
+                $("#6").text('O');
+                $("#6").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b5 !== '') && b5 === b6){
+                $("#4").text('O');
+                $("#4").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b1 !== '') && b1 === b3){
+                $("#2").text('O');
+                $("#2").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b1 !== '') && b1 === b2){
+                $("#3").text('O');
+                $("#3").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b1 !== '') && b1 === b4){
+                $("#7").text('O');
+                $("#7").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b1 !== '') && b1 === b7){
+                $("#4").text('O');
+                $("#4").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b1 !== '') && b1 === b5){
+                $("#9").text('O');
+                $("#9").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b1 !== '') && b1 === b9){
                 $("#5").text('O');
                 $("#5").animate({
                     "font-size": "107px"
                 }, 1000);
-            }i++;
+            }else if ((b2 !== '') && b2 === b3){
+                $("#1").text('O');
+                $("#1").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b2 !== '') && b2 === b1){
+                $("#3").text('O');
+                $("#3").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b2 !== '') && b2 === b5){
+                $("#8").text('O');
+                $("#8").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b2 !== '') && b2 === b8){
+                $("#5").text('O');
+                $("#5").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b3 !== '') && b3 === b2){
+                $("#1").text('O');
+                $("#1").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b3 !== '') && b3 === b1){
+                $("#2").text('O');
+                $("#2").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b3 !== '') && b3 === b5){
+                $("#7").text('O');
+                $("#7").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b3 !== '') && b3 === b7){
+                $("#5").text('O');
+                $("#5").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b3 !== '') && b3 === b6){
+                $("#9").text('O');
+                $("#9").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b3 !== '') && b3 === b9){
+                $("#6").text('O');
+                $("#6").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b4 !== '') && b4 === b5){
+                $("#6").text('O');
+                $("#6").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b4 !== '') && b4 === b6){
+                $("#5").text('O');
+                $("#5").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b4 !== '') && b4 === b1){
+                $("#7").text('O');
+                $("#7").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b4 !== '') && b4 === b7){
+                $("#1").text('O');
+                $("#1").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b6 !== '') && b6 === b5){
+                $("#4").text('O');
+                $("#4").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b6 !== '') && b6 === b4){
+                $("#5").text('O');
+                $("#5").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b6 !== '') && b6 === b3){
+                $("#9").text('O');
+                $("#9").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b6 !== '') && b6 === b9){
+                $("#3").text('O');
+                $("#3").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b7 !== '') && b7 === b5){
+                $("#3").text('O');
+                $("#3").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b7 !== '') && b7 === b3){
+                $("#5").text('O');
+                $("#5").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b7 !== '') && b7 === b4){
+                $("#1").text('O');
+                $("#1").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b7 !== '') && b7 === b1){
+                $("#4").text('O');
+                $("#4").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b7 !== '') && b7 === b8){
+                $("#9").text('O');
+                $("#9").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b7 !== '') && b7 === b9){
+                $("#8").text('O');
+                $("#8").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b8 !== '') && b8 === b5){
+                $("#2").text('O');
+                $("#2").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b8 !== '') && b8 === b2){
+                $("#5").text('O');
+                $("#5").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b8 !== '') && b8 === b9){
+                $("#7").text('O');
+                $("#7").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b8 !== '') && b8 === b7){
+                $("#9").text('O');
+                $("#9").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b9 !== '') && b9 === b5){
+                $("#1").text('O');
+                $("#1").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b9 !== '') && b9 === b1){
+                $("#5").text('O');
+                $("#5").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b9 !== '') && b9 === b6){
+                $("#3").text('O');
+                $("#3").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b9 !== '') && b9 === b3){
+                $("#6").text('O');
+                $("#6").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b9 !== '') && b9 === b8){
+                $("#7").text('O');
+                $("#7").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }else if ((b9 !== '') && b9 === b7){
+                $("#8").text('O');
+                $("#8").animate({
+                    "font-size": "107px"
+                }, 1000);
+            }
+            else {
+                if (b1 === '') {
+                    $("#1").text('O');
+                    $("#1").animate({
+                        "font-size": "107px"
+                    }, 1000);
+                }else if (b5 === ''){
+                    $("#5").text('O');
+                    $("#5").animate({
+                        "font-size": "107px"
+                    }, 1000);
+                }else if (b9 === ''){
+                    $("#9").text('O');
+                    $("#9").animate({
+                        "font-size": "107px"
+                    }, 1000);
+                }else if (b7 === ''){
+                    $("#7").text('O');
+                    $("#7").animate({
+                        "font-size": "107px"
+                    }, 1000);
+                }else if (b3 === ''){
+                    $("#3").text('O');
+                    $("#3").animate({
+                        "font-size": "107px"
+                    }, 1000);
+                }else if (b2 === ''){
+                    $("#2").text('O');
+                    $("#2").animate({
+                        "font-size": "107px"
+                    }, 1000);
+                }else if (b4 === ''){
+                    $("#4").text('O');
+                    $("#4").animate({
+                        "font-size": "107px"
+                    }, 1000);
+                }else if (b6 === ''){
+                    $("#6").text('O');
+                    $("#6").animate({
+                        "font-size": "107px"
+                    }, 1000);
+                }else if (b8 === ''){
+                    $("#8").text('O');
+                    $("#8").animate({
+                        "font-size": "107px"
+                    }, 1000);
+                }
+            }
+
+//            if (b5 !== '') {
+//                switch (b5) {
+//                    case b1:
+//                        $("#9").text('O');
+//                        $("#9").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b2:
+//                        $("#8").text('O');
+//                        $("#8").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b3:
+//                        $("#7").text('O');
+//                        $("#7").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b4:
+//                        $("#6").text('O');
+//                        $("#6").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b6:
+//                        $("#4").text('O');
+//                        $("#4").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b7:
+//                        $("#3").text('O');
+//                        $("#3").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b8:
+//                        $("#2").text('O');
+//                        $("#2").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b9:
+//                        $("#1").text('O');
+//                        $("#1").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    default:
+//                        $("#1").text('O');
+//                        $("#1").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                    break;
+//                }
+//            }else if(b1 !== ''){
+//                switch (b1) {
+//                    case b2:
+//                        $("#3").text('O');
+//                        $("#3").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b3:
+//                        $("#2").text('O');
+//                        $("#2").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b4:
+//                        $("#7").text('O');
+//                        $("#7").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b7:
+//                        $("#4").text('O');
+//                        $("#4").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b5:
+//                        $("#9").text('O');
+//                        $("#9").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b9:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    default:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                }
+//            } else if(b2 !== ''){
+//                switch (b2) {
+//                    case b1:
+//                        $("#3").text('O');
+//                        $("#3").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b3:
+//                        $("#1").text('O');
+//                        $("#1").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b5:
+//                        $("#8").text('O');
+//                        $("#8").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b8:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    default:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                }
+//            }else if(b3 !== ''){
+//                switch (b3) {
+//                    case b2:
+//                        $("#1").text('O');
+//                        $("#1").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b1:
+//                        $("#2").text('O');
+//                        $("#2").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b6:
+//                        $("#9").text('O');
+//                        $("#9").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b9:
+//                        $("#6").text('O');
+//                        $("#6").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b5:
+//                        $("#7").text('O');
+//                        $("#7").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b7:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    default:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                }
+//            }else if(b4 !== ''){
+//                switch (b4){
+//                    case b1:
+//                        $("#7").text('O');
+//                        $("#7").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b7:
+//                        $("#1").text('O');
+//                        $("#1").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b5:
+//                        $("#6").text('O');
+//                        $("#6").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b6:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    default:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                }
+//            }else if(b6 !== ''){
+//                switch (b6){
+//                    case b3:
+//                        $("#9").text('O');
+//                        $("#9").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b9:
+//                        $("#3").text('O');
+//                        $("#3").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b5:
+//                        $("#4").text('O');
+//                        $("#4").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b4:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    default:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                }
+//            }else if(b7 !== ''){
+//                switch (b7) {
+//                    case b8:
+//                        $("#9").text('O');
+//                        $("#9").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b9:
+//                        $("#8").text('O');
+//                        $("#8").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b4:
+//                        $("#1").text('O');
+//                        $("#1").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b1:
+//                        $("#4").text('O');
+//                        $("#4").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b5:
+//                        $("#3").text('O');
+//                        $("#3").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b3:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    default:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                }
+//            }else if(b8 !== ''){
+//                switch (b8){
+//                    case b7:
+//                        $("#9").text('O');
+//                        $("#9").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b9:
+//                        $("#7").text('O');
+//                        $("#7").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b5:
+//                        $("#2").text('O');
+//                        $("#2").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b2:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    default:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                }
+//            }else if(b9 !== ''){
+//                switch (b9) {
+//                    case b8:
+//                        $("#7").text('O');
+//                        $("#7").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b7:
+//                        $("#8").text('O');
+//                        $("#8").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b6:
+//                        $("#3").text('O');
+//                        $("#3").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b3:
+//                        $("#6").text('O');
+//                        $("#6").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b5:
+//                        $("#1").text('O');
+//                        $("#1").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    case b1:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                    default:
+//                        $("#5").text('O');
+//                        $("#5").animate({
+//                            "font-size": "107px"
+//                        }, 1000);
+//                        break;
+//                }
+//            }else{
+//                if (b5 == '') {
+//                    $("#5").text('O');
+//                    $("#5").animate({
+//                        "font-size": "107px"
+//                    }, 1000);
+//                }else{
+//                    $("#6").text('O');
+//                    $("#6").animate({
+//                        "font-size": "107px"
+//                    }, 1000);
+//                }
+//            }i++;
+            i++;
         }
 
 
@@ -323,7 +855,7 @@
                 }
 
 
-                if (i < 10 && wonYet === 'none') {
+                if (i < 12 && wonYet === 'none') {
                     checkWin();
                     if (!current) {
                         if (i % 2 === 0) {
