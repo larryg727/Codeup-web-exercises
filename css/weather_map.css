@@ -11,9 +11,15 @@ body {
     width: 95%;
     margin: 0 auto;
 }
+#cloudBack{
+    background-image: url("../img/cloud.png");
+    background-repeat: no-repeat;
+    background-size: 60% 110%;
+    background-position: center;
+}
 #weatherContainer {
     background-color: darkblue;
-    margin: 10px auto;
+    margin: 0 auto;
     margin-bottom: 0;
     width: 80%;
 }
@@ -91,7 +97,7 @@ p {
 }
 h1{
     font-size: 4em;
-    color: #ffffff;
+    color: #A3CCFF;
     margin-bottom: 0;
     margin-top: 0;
 }
@@ -114,12 +120,14 @@ h2 {
 #searchContainer{
     width: 80%;
     margin: 0 auto;
+    color: #00008B;
 }
 #daySelector {
     color: #fff;
     padding-left: 0;
     list-style: none;
     width: 100%;
+    margin-top: 0;
 }
 #daySelector>li {
     font-weight: bold;
@@ -128,8 +136,11 @@ h2 {
     padding: 10px 0;
     display: inline-block;
     margin: 0 3%;
-    border-bottom: 1px solid #fff;
-    border-radius: 20%;
+    border-bottom: 2px solid #fff;
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
 }
 #daySelector>li:hover {
     background: white; /* For browsers that do not support gradients */
@@ -137,6 +148,7 @@ h2 {
     background: -o-linear-gradient(#00008B, #fff); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(#00008B, #fff); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#00008B, #fff); /* Standard syntax */
+    color: #00008B;
 }
 .todayBox>h3{
     margin: 0 300px 0 0;

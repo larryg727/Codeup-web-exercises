@@ -12,6 +12,11 @@ $(document).ready(function(){
     var address;
     var cnt = "3";
     var useClass = ".threeDayBox";
+    var infoContent = "Drag me to change locations";
+    var infowindow = new google.maps.InfoWindow({
+        content: infoContent
+    });
+
 
     function loadWeather() {
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
@@ -21,7 +26,6 @@ $(document).ready(function(){
             units: "imperial",
             cnt: cnt
         }).done(function (data) {
-            console.log(data);
             data.list.forEach(function (el, i) {
                 var appendStr = '';
                 var idVar = "#day" + i;   // to cycle between three weather divs
@@ -36,8 +40,13 @@ $(document).ready(function(){
                 appendStr += ("<p><strong>Pressure: </strong>" + data.list[i].pressure + "</p>");
 
                 $(useClass+idVar).html(appendStr);  //inserting new weather
+
+                infoContent = "<h3>Todays high: " + Math.round(data.list[0].temp.max) + "&deg</h3><h3>Today's low: " + Math.round(data.list[0].temp.min) + "&deg</h3>";
+                infowindow.setContent(infoContent);
             });
             $("#currentCity").html(data.city.name);  //update current city
+
+
         });
     }
 
@@ -87,6 +96,7 @@ $(document).ready(function(){
     function focusMap(){
         map.setCenter(marker.position);//resets center of map.. NOO reload!
         // map.setZoom(9);      // zoom in on city
+        infowindow.open(map, marker);
     }
 
     function focusMarker(){   //sets marker if location moved by other means
@@ -125,13 +135,13 @@ $(document).ready(function(){
             draggable: true
         });
 
-
+        infowindow.open(map, marker);
         // drag event
         google.maps.event.addListener(marker, 'dragend', function() {
             lat = marker.position.lat();    // getting current lat of marker
             lng = marker.position.lng();     // getting current lng of marker
-            updateInputs();
             runToday();                     //updating weather and map
+            updateInputs();
             focusMap();
         });
 
@@ -143,10 +153,10 @@ $(document).ready(function(){
                 if (status === google.maps.GeocoderStatus.OK) {
                     lat = results[0].geometry.location.lat();  // update global lat and lng variables to results
                     lng = results[0].geometry.location.lng();
+                    runToday();
+                    updateInputs();
                     focusMarker();     //update map and marker to new location
                     focusMap();
-                    updateInputs();
-                    runToday();
 
                 } else {
                     alert("Please enter a valid location");
@@ -158,19 +168,7 @@ $(document).ready(function(){
 
     //separate function for today tab. too many differences
     function loadTodayWeather() {
-        $.get("http://api.openweathermap.org/data/2.5/weather", {
-            APPID: "a824ef2e2591bd239228beab33789010",
-            lat: lat,
-            lon: lng,
-            units: "imperial"
-        }).done(function (data) {
-            console.log(data);
-            var newStr = '';
-            var currentTemp = Math.round(data.main.temp);
-            newStr += ("<h3>Current Temp:  " + currentTemp + "&deg</h3>");
-            $(".todayBox").html(newStr);
 
-        });
 
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
             APPID: "a824ef2e2591bd239228beab33789010",
@@ -194,9 +192,25 @@ $(document).ready(function(){
                 appendStr += ("<p><strong>Wind: </strong>" + data.list[i].speed + "</p>");
                 appendStr += ("<p><strong>Pressure: </strong>" + data.list[i].pressure + "</p>");
 
-                $(".todayBox").append(appendStr);  //inserting new weather
+                $(".todayBox").html(appendStr);  //inserting new weather
             });
             $("#currentCity").html(data.city.name);  //update current city
+        });
+        $.get("http://api.openweathermap.org/data/2.5/weather", {
+            APPID: "a824ef2e2591bd239228beab33789010",
+            lat: lat,
+            lon: lng,
+            units: "imperial"
+        }).done(function (data) {
+            console.log(data);
+            var newStr = '';
+            var currentTemp = Math.round(data.main.temp);
+            newStr += ("<h3>Current Temp:  " + currentTemp + "&deg</h3>");
+            $(".todayBox").append(function(n, h){
+                $(".todayBox").html("");
+                return newStr + h;
+            });
+
         });
     }
 
