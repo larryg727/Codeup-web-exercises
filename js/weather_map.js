@@ -16,7 +16,9 @@ $(document).ready(function(){
     var infowindow = new google.maps.InfoWindow({
         content: infoContent
     });
-
+    var day;
+    var today;
+    var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurseday", "Friday", "Saturday"];
 
     function loadWeather() {
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
@@ -28,7 +30,7 @@ $(document).ready(function(){
         }).done(function (data) {
             data.list.forEach(function (el, i) {
                 var appendStr = '';
-                var idVar = "#day" + i;   // to cycle between three weather divs
+                var idVar = "#day" + i;   // to cycle between  weather divs
                 var maxTemp = Math.round(data.list[i].temp.max);
                 var minTemp = Math.round(data.list[i].temp.min);
                 var iconUrl = "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png";
@@ -65,6 +67,7 @@ $(document).ready(function(){
         cnt = "3";
         $(".threeDayBox, #threeDayList").show();
         $(".todayBox, .fiveDayBox, .tenDayBox, #fiveDayList").hide();
+        dayFinder();
         loadWeather();
     });
 
@@ -73,6 +76,7 @@ $(document).ready(function(){
         cnt = "5";
         $(".fiveDayBox, #fiveDayList").css("display", "inline-block");
         $(".todayBox, .threeDayBox, .tenDayBox, #threeDayList").hide();
+        dayFinderfive();
         loadWeather();
     });
 
@@ -221,6 +225,36 @@ $(document).ready(function(){
             loadWeather();
         }
     };
+
+    function dayFinder() {
+        today = new Date().getDay();
+        for (day = 1; day <= 4; day++) {
+            if (today + day < 7) {
+                $(".daysId3").children().first().next().text(daysOfWeek[today + 1]);
+                $(".daysId").children().first().next().next().text(daysOfWeek[today + 2]);
+            } else {
+                $(".daysId3").children().first().next().text(daysOfWeek[today + 1 - 7]);
+                $(".daysId3").children().first().next().next().text(daysOfWeek[today + 2 - 7]);
+            }
+        }
+    }
+    function dayFinderfive() {
+        today = new Date().getDay();
+        for (day = 1; day <= 4; day++) {
+            if (today + day < 7) {
+                $(".daysId").children().first().next().text(daysOfWeek[today + 1]);
+                $(".daysId").children().first().next().next().text(daysOfWeek[today + 2]);
+                $(".daysId").children().first().next().next().next().text(daysOfWeek[today + 3]);
+                $(".daysId").children().first().next().next().next().next().text(daysOfWeek[today + 4]);
+            } else {
+                $(".daysId").children().first().next().text(daysOfWeek[today + 1 - 7]);
+                $(".daysId").children().first().next().next().text(daysOfWeek[today + 2 - 7]);
+                $(".daysId").children().first().next().next().next().text(daysOfWeek[today + 3 - 7]);
+                $(".daysId").children().first().next().next().next().next().text(daysOfWeek[today + 4 - 7]);
+            }
+        }
+    }
+    dayFinder();
 
     initializeMap();  // initial map load
     loadWeather(); // initial weather load
