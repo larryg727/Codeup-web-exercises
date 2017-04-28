@@ -13,28 +13,55 @@
     <h2 id="currentCity"></h2>
     <div id="searchContainer">
         <div id="leftSearch" class="search">
-        <label for="search">Search for location:</label>
-        <input type="text" id="search" value="">
-        <button id="searchBtn">Search</button>
+            <label for="search">Search for location:</label>
+            <input type="text" id="search" value="">
+            <button id="searchBtn">Search</button>
         </div>
         <div id="rightSearch" class="search">
-        <label for="lat">Latitude</label>
-        <input type="text" id="lat" value="29.426803">
-        <label for="lng">Longitude</label>
-        <input type="text" id="lng" value="-98.489273">
-        <button id="locSubmit">Update</button>
+            <label for="lat">Latitude</label>
+            <input type="text" id="lat" value="29.426803">
+            <label for="lng">Longitude</label>
+            <input type="text" id="lng" value="-98.489273">
+            <button id="locSubmit">Update</button>
         </div>
     </div>
+
     <div id="weatherContainer">
+
+        <div id="selectorTabs">
+            <ul id="daySelector">
+                <li id="today">Today</li>
+                <li id="threeDay">3 Day</li>
+                <li id="fiveDay">5 Day</li>
+                <li id="tenDay">10 Day</li>
+            </ul>
+        </div>
+
         <ul id="dayList">
             <li>Today</li>
             <li>Day 2</li>
             <li>Day 3</li>
         </ul>
-        <br>
-        <div class="dayBox" id="day0"></div>
-        <div class="dayBox" id="day1"></div>
-        <div class="dayBox" id="day2"></div>
+        <div id="weatherBoxes">
+            <div class="threeDayBox" id="day0"></div>
+            <div class="threeDayBox" id="day1"></div>
+            <div class="threeDayBox" id="day2"></div>
+            <div class="fiveDayBox" id="day0"></div>
+            <div class="fiveDayBox" id="day1"></div>
+            <div class="fiveDayBox" id="day2"></div>
+            <div class="fiveDayBox" id="day3"></div>
+            <div class="fiveDayBox" id="day4"></div>
+            <div class="tenDayBox" id="day0"></div>
+            <div class="tenDayBox" id="day1"></div>
+            <div class="tenDayBox" id="day2"></div>
+            <div class="tenDayBox" id="day3"></div>
+            <div class="tenDayBox" id="day4"></div>
+            <div class="tenDayBox" id="day5"></div>
+            <div class="tenDayBox" id="day6"></div>
+            <div class="tenDayBox" id="day7"></div>
+            <div class="tenDayBox" id="day8"></div>
+            <div class="tenDayBox" id="day9"></div>
+        </div>
     </div>
 
     <div id="map"></div>

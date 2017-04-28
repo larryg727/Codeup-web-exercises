@@ -10,6 +10,8 @@ $(document).ready(function(){
     var map;
     var marker;
     var address;
+    var cnt = "3";
+    var useClass = ".threeDayBox";
 
     function loadWeather() {
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
@@ -17,9 +19,9 @@ $(document).ready(function(){
             lat: lat,
             lon: lng,
             units: "imperial",
-            cnt: "3"
+            cnt: cnt
         }).done(function (data) {
-            console.log(data.city.name);
+            console.log(data);
             data.list.forEach(function (el, i) {
                 var appendStr = '';
                 var idVar = "#day" + i;   // to cycle between three weather divs
@@ -33,11 +35,43 @@ $(document).ready(function(){
                 appendStr += ("<p><strong>Wind: </strong>" + data.list[i].speed + "</p>");
                 appendStr += ("<p><strong>Pressure: </strong>" + data.list[i].pressure + "</p>");
 
-                $(idVar).html(appendStr);  //inserting new weather
+                $(useClass+idVar).html(appendStr);  //inserting new weather
             });
             $("#currentCity").html(data.city.name);  //update current city
         });
     }
+       //day selector buttons
+    $("#today").click(function(){
+        cnt = "1";
+        var url = "http://api.openweathermap.org/data/2.5/weather";
+        $(".todayBox").show();
+        $(".threeDayBox, .fiveDayBox, .tenDayBox").hide();
+        loadWeather();
+    });
+
+    $("#threeDay").click(function(){
+        useClass = ".threeDayBox";
+        cnt = "3";
+        $(".threeDayBox").show();
+        $(".todayBox, .fiveDayBox, .tenDayBox").hide();
+        loadWeather();
+    });
+
+    $("#fiveDay").click(function(){
+        useClass = ".fiveDayBox";
+        cnt = "5";
+        $(".fiveDayBox").css("display", "inline-block");
+        $(".todayBox, .threeDayBox, .tenDayBox").hide();
+        loadWeather();
+    });
+
+    $("#tenDay").click(function(){
+        useClass = ".tenDayBox";
+        cnt = "10";
+        $(".tenDayBox").css("display", "inline-block");
+        $(".todayBox, .fiveDayBox, .threeDayBox").hide();
+        loadWeather();
+    });
         // update map button
     $("#locSubmit").click(function(){
        lat = $("#lat").val();   //updating position to value in input
