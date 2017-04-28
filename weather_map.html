@@ -4,31 +4,40 @@
     <meta charset="UTF-8">
     <title>Weather Map App</title>
     <link rel="stylesheet" href="css/weather_map.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div id="appContainer">
     <h1>Weather Application</h1>
 
     <h2 id="currentCity"></h2>
-
-    <label for="lat">Latitude</label>
-    <input type="text" id="lat" value="29.426803">
-    <label for="lng">Longitude</label>
-    <input type="text" id="lng" value="-98.489273">
-    <button id="locSubmit">Update</button>
-
+    <div id="searchContainer">
+        <div id="leftSearch" class="search">
+        <label for="search">Search for location:</label>
+        <input type="text" id="search" value="">
+        <button id="searchBtn">Search</button>
+        </div>
+        <div id="rightSearch" class="search">
+        <label for="lat">Latitude</label>
+        <input type="text" id="lat" value="29.426803">
+        <label for="lng">Longitude</label>
+        <input type="text" id="lng" value="-98.489273">
+        <button id="locSubmit">Update</button>
+        </div>
+    </div>
     <div id="weatherContainer">
         <ul id="dayList">
             <li>Today</li>
             <li>Day 2</li>
             <li>Day 3</li>
-        </ul><br>
+        </ul>
+        <br>
         <div class="dayBox" id="day0"></div>
         <div class="dayBox" id="day1"></div>
         <div class="dayBox" id="day2"></div>
     </div>
 
-<div id="map"></div>
+    <div id="map"></div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrAa4WKQBvUJMS6mVty9WE7xaOU9dV64Q"></script>
 <script src="js/jquery-2.2.4.min.js"></script>

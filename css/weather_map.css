@@ -64,3 +64,28 @@ h2 {
     margin: 0 auto;
     color: #00008B;
 }
+.search{
+    display: inline-block;
+}
+#leftSearch {
+    text-align: left;
+    width: 44%;
+}
+#rightSearch {
+    text-align: right;
+    width: 54%;
+}
+#searchContainer{
+    width: 80%;
+    margin: 0 auto;
+}
+@media screen and (max-width: 1180px){
+    #rightSearch{
+        display: none;
+    }
+    #leftSearch{
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}

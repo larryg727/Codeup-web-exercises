@@ -9,6 +9,7 @@ $(document).ready(function(){
     var lng = $("#lng").val();
     var map;
     var marker;
+    var address;
 
     function loadWeather() {
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
@@ -39,12 +40,30 @@ $(document).ready(function(){
     }
         // update map button
     $("#locSubmit").click(function(){
-        // clearWeather();
-       lat = $("#lat").val();
+       lat = $("#lat").val();   //updating position to value in input
        lng = $("#lng").val();
-       loadWeather(lat, lng);
-       initializeMap(lat, lng);
+       loadWeather();            // update map and weather
+      initializeMap();
     });
+
+
+
+    function focusMap(){
+        map.setCenter(marker.position);//resets center of map.. NOO reload!
+        // map.setZoom(9);      // zoom in on city
+    }
+
+    function focusMarker(){   //sets marker if location moved by other means
+        marker.setPosition({
+            lat: lat,
+            lng: lng
+        })
+    }
+
+    function updateInputs(){
+        $("#lat").val(lat.toFixed(6));    // update input values to current location
+        $("#lng").val(lng.toFixed(6));
+    }
 
        // map and marker function
     function initializeMap() {
@@ -57,8 +76,10 @@ $(document).ready(function(){
             disableDefaultUI: true,
             zoomControl: true
         };
-
+            //create map
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        // create marker
         marker = new google.maps.Marker({
             position: {
                 lat: parseFloat(lat),
@@ -73,13 +94,28 @@ $(document).ready(function(){
         google.maps.event.addListener(marker, 'dragend', function() {
             lat = marker.position.lat();    // getting current lat of marker
             lng = marker.position.lng();     // getting current lng of marker
-            $("#lat").val(lat.toFixed(6));    // updating inputs
-            $("#lng").val(lng.toFixed(6));
+            updateInputs();
             loadWeather();                      //updating weather and map
-            map.setCenter(marker.position);//resets center of map.. NOO reload!
-            map.setZoom(9);      // zoom in on city
+            focusMap();
         });
 
+        //address search button
+        $("#searchBtn").click(function(){
+            address = $("#search").val();  //get address from input
+            var geocoder = new google.maps.Geocoder();
+           geocoder.geocode({address: address}, function (results, status){
+                if (status === google.maps.GeocoderStatus.OK) {
+                    lat = results[0].geometry.location.lat();  // update global lat and lng variables to results
+                    lng = results[0].geometry.location.lng();
+                    focusMarker();     //update map and marker to new location
+                    focusMap();
+                    updateInputs();
+                    loadWeather();
+                } else {
+                    alert("Please enter a valid location");
+                }
+            });
+        });
 
     }
 
