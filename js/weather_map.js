@@ -40,28 +40,30 @@ $(document).ready(function(){
             $("#currentCity").html(data.city.name);  //update current city
         });
     }
+
+
        //day selector buttons
     $("#today").click(function(){
+        useClass = ".todayBox";
         cnt = "1";
-        var url = "http://api.openweathermap.org/data/2.5/weather";
         $(".todayBox").show();
-        $(".threeDayBox, .fiveDayBox, .tenDayBox").hide();
-        loadWeather();
+        $(".threeDayBox, .fiveDayBox, .tenDayBox, #threeDayList, #fiveDayList").hide();
+        loadTodayWeather();
     });
 
     $("#threeDay").click(function(){
         useClass = ".threeDayBox";
         cnt = "3";
-        $(".threeDayBox").show();
-        $(".todayBox, .fiveDayBox, .tenDayBox").hide();
+        $(".threeDayBox, #threeDayList").show();
+        $(".todayBox, .fiveDayBox, .tenDayBox, #fiveDayList").hide();
         loadWeather();
     });
 
     $("#fiveDay").click(function(){
         useClass = ".fiveDayBox";
         cnt = "5";
-        $(".fiveDayBox").css("display", "inline-block");
-        $(".todayBox, .threeDayBox, .tenDayBox").hide();
+        $(".fiveDayBox, #fiveDayList").css("display", "inline-block");
+        $(".todayBox, .threeDayBox, .tenDayBox, #threeDayList").hide();
         loadWeather();
     });
 
@@ -69,14 +71,14 @@ $(document).ready(function(){
         useClass = ".tenDayBox";
         cnt = "10";
         $(".tenDayBox").css("display", "inline-block");
-        $(".todayBox, .fiveDayBox, .threeDayBox").hide();
+        $(".todayBox, .fiveDayBox, .threeDayBox, #threeDayList, #fiveDayList").hide();
         loadWeather();
     });
         // update map button
     $("#locSubmit").click(function(){
        lat = $("#lat").val();   //updating position to value in input
        lng = $("#lng").val();
-       loadWeather();            // update map and weather
+       runToday();            // update map and weather
       initializeMap();
     });
 
@@ -110,7 +112,7 @@ $(document).ready(function(){
             disableDefaultUI: true,
             zoomControl: true
         };
-            //create map
+        //create map
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
         // create marker
@@ -129,7 +131,7 @@ $(document).ready(function(){
             lat = marker.position.lat();    // getting current lat of marker
             lng = marker.position.lng();     // getting current lng of marker
             updateInputs();
-            loadWeather();                      //updating weather and map
+            runToday();                     //updating weather and map
             focusMap();
         });
 
@@ -144,7 +146,8 @@ $(document).ready(function(){
                     focusMarker();     //update map and marker to new location
                     focusMap();
                     updateInputs();
-                    loadWeather();
+                    runToday();
+
                 } else {
                     alert("Please enter a valid location");
                 }
@@ -152,6 +155,58 @@ $(document).ready(function(){
         });
 
     }
+
+    //separate function for today tab. too many differences
+    function loadTodayWeather() {
+        $.get("http://api.openweathermap.org/data/2.5/weather", {
+            APPID: "a824ef2e2591bd239228beab33789010",
+            lat: lat,
+            lon: lng,
+            units: "imperial"
+        }).done(function (data) {
+            console.log(data);
+            var newStr = '';
+            var currentTemp = Math.round(data.main.temp);
+            newStr += ("<h3>Current Temp:  " + currentTemp + "&deg</h3>");
+            $(".todayBox").html(newStr);
+
+        });
+
+        $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+            APPID: "a824ef2e2591bd239228beab33789010",
+            lat: lat,
+            lon: lng,
+            units: "imperial",
+            cnt: cnt
+        }).done(function (data) {
+            console.log(data);
+            data.list.forEach(function (el, i) {
+                var appendStr = '';
+                var idVar = "#day" + i;   // to cycle between three weather divs
+                var maxTemp = Math.round(data.list[i].temp.max);
+                var minTemp = Math.round(data.list[i].temp.min);
+                var iconUrl = "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png";
+                appendStr += ("<img src='" + iconUrl + "' alt='Icon'>");
+                appendStr += ("<h3>High: " + maxTemp + "&deg</h3>");
+                appendStr += ("<h3>Low: " + minTemp + "&deg</h3>");
+                appendStr += ("<p><strong>" + data.list[i].weather[0].main + ":</strong> " + data.list[i].weather[0].description + "</p>");
+                appendStr += ("<p><strong>Humidity: </strong>" + data.list[i].humidity + "</p>");
+                appendStr += ("<p><strong>Wind: </strong>" + data.list[i].speed + "</p>");
+                appendStr += ("<p><strong>Pressure: </strong>" + data.list[i].pressure + "</p>");
+
+                $(".todayBox").append(appendStr);  //inserting new weather
+            });
+            $("#currentCity").html(data.city.name);  //update current city
+        });
+    }
+
+    function runToday(){
+        if($(".todayBox").css("display") !== "none"){
+            loadTodayWeather();
+        }else{
+            loadWeather();
+        }
+    };
 
     initializeMap();  // initial map load
     loadWeather(); // initial weather load

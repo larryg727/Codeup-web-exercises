@@ -31,7 +31,6 @@ body {
     width: 19%;
     text-align: center;
     border-bottom: 2px solid #b0b0b0;
-    /*display: inline-block;*/
     border-right: 2px solid #b0b0b0;
     margin-right: -4px;
     display: none;
@@ -41,10 +40,22 @@ body {
     width: 19%;
     text-align: center;
     border-bottom: 2px solid #b0b0b0;
-    /*display: inline-block;*/
     border-right: 2px solid #b0b0b0;
     margin-right: -4px;
     display: none;
+}
+.todayBox {
+    /*background-color: #ffffff;*/
+    width: 95%;
+    text-align: center;
+    border-bottom: 2px solid #b0b0b0;
+    margin: 0 auto;
+    display: none;
+    background: #fff; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #fff , #A3CCFF); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #fff, #A3CCFF); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #fff, #A3CCFF); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #fff , #A3CCFF); /* Standard syntax */
 }
 
 p {
@@ -56,17 +67,27 @@ p {
     height: 400px;
     margin: 0 auto;
 }
-#dayList {
+#threeDayList, #fiveDayList{
     width: 100%;
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
 }
-#dayList>li {
+#threeDayList>li {
     display: inline-block;
     color: #A3CCFF;
     font-size: 1.4em;
     width: 30%;
+}
+#fiveDayList>li {
+    color: #A3CCFF;
+    font-size: 1.4em;
+    width: 19%;
+    display: inline-block;
+}
+#fiveDayList{
+    display: none;
+    margin: 0;
 }
 h1{
     font-size: 4em;
@@ -107,18 +128,27 @@ h2 {
     padding: 10px 0;
     display: inline-block;
     margin: 0 3%;
-    /*border-right: 1px solid #fff;*/
     border-bottom: 1px solid #fff;
-    /*border-left: 1px solid #fff;*/
     border-radius: 20%;
 }
 #daySelector>li:hover {
-    background: red; /* For browsers that do not support gradients */
+    background: white; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(#00008B, #fff); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#00008B, #fff); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(#00008B, #fff); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#00008B, #fff); /* Standard syntax */
 }
+.todayBox>h3{
+    margin: 0 300px 0 0;
+}
+.todayBox>img {
+    width: 150px;
+    height: 150px;
+    float: right;
+    padding-bottom: 15px;
+    margin: 0 100px 0 50px;
+}
+
 
 
 @media screen and (max-width: 1180px){
