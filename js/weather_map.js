@@ -11,6 +11,7 @@ $(document).ready(function(){
     var marker;
     var address;
     var cnt = "3";
+    var idVar;
     var useClass = ".threeDayBox";
     var infoContent = "Drag me to change locations";
     var infowindow = new google.maps.InfoWindow({
@@ -18,7 +19,7 @@ $(document).ready(function(){
     });
     var day;
     var today;
-    var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurseday", "Friday", "Saturday"];
+    var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     function loadWeather() {
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
@@ -30,7 +31,7 @@ $(document).ready(function(){
         }).done(function (data) {
             data.list.forEach(function (el, i) {
                 var appendStr = '';
-                var idVar = "#day" + i;   // to cycle between  weather divs
+                idVar = "#day" + i;   // to cycle between  weather divs
                 var maxTemp = Math.round(data.list[i].temp.max);
                 var minTemp = Math.round(data.list[i].temp.min);
                 var iconUrl = "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png";
@@ -76,8 +77,8 @@ $(document).ready(function(){
         cnt = "5";
         $(".fiveDayBox, #fiveDayList").css("display", "inline-block");
         $(".todayBox, .threeDayBox, .tenDayBox, #threeDayList").hide();
-        dayFinderfive();
         loadWeather();
+        dayFinderfive();
     });
 
     $("#tenDay").click(function(){
@@ -138,7 +139,7 @@ $(document).ready(function(){
             map: map,
             draggable: true
         });
-
+        //call info window up
         infowindow.open(map, marker);
         // drag event
         google.maps.event.addListener(marker, 'dragend', function() {
@@ -172,8 +173,6 @@ $(document).ready(function(){
 
     //separate function for today tab. too many differences
     function loadTodayWeather() {
-
-
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
             APPID: "a824ef2e2591bd239228beab33789010",
             lat: lat,
@@ -183,39 +182,43 @@ $(document).ready(function(){
         }).done(function (data) {
             console.log(data);
             data.list.forEach(function (el, i) {
-                var appendStr = '';
-                var idVar = "#day" + i;   // to cycle between three weather divs
+                var appendStrLeft = " ";
+                var appendStrRight = ' ';
+                var appendStrCenter = ' ';
                 var maxTemp = Math.round(data.list[i].temp.max);
                 var minTemp = Math.round(data.list[i].temp.min);
                 var iconUrl = "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png";
-                appendStr += ("<img src='" + iconUrl + "' alt='Icon'>");
-                appendStr += ("<h3>High: " + maxTemp + "&deg</h3>");
-                appendStr += ("<h3>Low: " + minTemp + "&deg</h3>");
-                appendStr += ("<p><strong>" + data.list[i].weather[0].main + ":</strong> " + data.list[i].weather[0].description + "</p>");
-                appendStr += ("<p><strong>Humidity: </strong>" + data.list[i].humidity + "</p>");
-                appendStr += ("<p><strong>Wind: </strong>" + data.list[i].speed + "</p>");
-                appendStr += ("<p><strong>Pressure: </strong>" + data.list[i].pressure + "</p>");
+                appendStrLeft += ("<h3>High: " + maxTemp + "&deg</h3>");
+                appendStrLeft += ("<h3>Low: " + minTemp + "&deg</h3>");
+                appendStrRight += ("<h3><strong>" + data.list[i].weather[0].main + ":</strong> " + data.list[i].weather[0].description + "</h3>");
+                appendStrRight += ("<img src='" + iconUrl + "' alt='Icon'>");
+                appendStrCenter += ("<p><strong>Humidity: </strong>" + data.list[i].humidity + "</p>");
+                appendStrCenter += ("<p><strong>Wind: </strong>" + data.list[i].speed + "</p>");
+                appendStrCenter += ("<p><strong>Pressure: </strong>" + data.list[i].pressure + "</p>");
 
-                $(".todayBox").html(appendStr);  //inserting new weather
+                $("#todayLeft").html(appendStrLeft);  //inserting new weather
+                $('#todayCenter').html(appendStrCenter);
+                $("#todayRight").html(appendStrRight);
             });
             $("#currentCity").html(data.city.name);  //update current city
         });
-        $.get("http://api.openweathermap.org/data/2.5/weather", {
-            APPID: "a824ef2e2591bd239228beab33789010",
-            lat: lat,
-            lon: lng,
-            units: "imperial"
-        }).done(function (data) {
-            console.log(data);
-            var newStr = '';
-            var currentTemp = Math.round(data.main.temp);
-            newStr += ("<h3>Current Temp:  " + currentTemp + "&deg</h3>");
-            $(".todayBox").append(function(n, h){
-                $(".todayBox").html("");
-                return newStr + h;
-            });
-
-        });
+        // -----------running second ajax request JUST to receive current temp. ... kind of buggy.. not worth it.
+        // $.get("http://api.openweathermap.org/data/2.5/weather", {
+        //     APPID: "a824ef2e2591bd239228beab33789010",
+        //     lat: lat,
+        //     lon: lng,
+        //     units: "imperial"
+        // }).done(function (data) {
+        //     console.log(data);
+        //     var newStr = '';
+        //     var currentTemp = Math.round(data.main.temp);
+        //     newStr += ("<h3>Current Temp:  " + currentTemp + "&deg</h3>");
+        //     $(".todayBox").append(function(n, h){
+        //         $(".todayBox").html("");
+        //         return newStr + h;
+        //     });
+        //
+        // });
     }
 
     function runToday(){
@@ -224,7 +227,7 @@ $(document).ready(function(){
         }else{
             loadWeather();
         }
-    };
+    }
 
     function dayFinder() {
         today = new Date().getDay();
@@ -240,17 +243,20 @@ $(document).ready(function(){
     }
     function dayFinderfive() {
         today = new Date().getDay();
-        for (day = 1; day <= 4; day++) {
+        for (var i = 1; i < 5; i++) {
+            idVar = "#day" + i + ".fiveDayBox";
             if (today + day < 7) {
-                $(".daysId").children().first().next().text(daysOfWeek[today + 1]);
-                $(".daysId").children().first().next().next().text(daysOfWeek[today + 2]);
-                $(".daysId").children().first().next().next().next().text(daysOfWeek[today + 3]);
-                $(".daysId").children().first().next().next().next().next().text(daysOfWeek[today + 4]);
+                day = daysOfWeek[today + i];
+                console.log(idVar);
+                $(idVar).append(function(n, h){
+                    return  day + h;
+                });
             } else {
-                $(".daysId").children().first().next().text(daysOfWeek[today + 1 - 7]);
-                $(".daysId").children().first().next().next().text(daysOfWeek[today + 2 - 7]);
-                $(".daysId").children().first().next().next().next().text(daysOfWeek[today + 3 - 7]);
-                $(".daysId").children().first().next().next().next().next().text(daysOfWeek[today + 4 - 7]);
+                $(idVar).append(function(n, h) {
+                    day = daysOfWeek[today + i - 7];
+                    console.log(idVar);
+                    return  day + h;
+                });
             }
         }
     }
