@@ -64,28 +64,7 @@ p {
     height: 400px;
     margin: 0 auto;
 }
-#threeDayList, #fiveDayList{
-    width: 100%;
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-#threeDayList>li {
-    display: inline-block;
-    color: #A3CCFF;
-    font-size: 1.4em;
-    width: 30%;
-}
-#fiveDayList>li {
-    color: #A3CCFF;
-    font-size: 1.4em;
-    width: 19%;
-    display: inline-block;
-}
-#fiveDayList{
-    display: none;
-    margin: 0;
-}
+
 h1{
     font-size: 4.5vw;
     color: #A3CCFF;
@@ -168,6 +147,12 @@ h2 {
 #todayLeft>h3{
     margin: 0 0 24px 0;
 }
+.weatherBoxDivs h2{
+    font-size: 1.6em;
+}
+.todayBox h2 {
+    font-size: 2em;
+}
 
 
 
@@ -194,6 +179,20 @@ h2 {
         font-size: 4vw;
     }
 }
+@media screen and (max-width: 840px){
+    .weatherBoxDivs h2{
+        font-size: 1.3em;
+    }
+}
+@media screen and (max-width: 720px){
+    .fiveTens{
+        width: 30%;
+    }
+    .weatherBoxDivs h2{
+        font-size: 1.6em;
+    }
+}
+
 @media screen and (max-width: 600px){
     h1{
         font-size: 10vw;
@@ -210,10 +209,10 @@ h2 {
     #map{
         width: 100%;
     }
-    .fiveDayBox{
-        width: 30%;
+    .three{
+       width: 80%;
     }
-    .tenDayBox {
-        width: 40%;
+    .fiveTens{
+       width: 45%;
     }
 }
