@@ -68,7 +68,7 @@ $(document).ready(function () {
                 $("#todayRight").html(appendStrRight);
 
 
-                infoContent = "<img src='" + iconUrl + "' alt='Icon'>" + "<h3>Todays high: " + Math.round(data.list[0].temp.max) + "&deg</h3><h3>Today's low: " + Math.round(data.list[0].temp.min) + "&deg</h3>";
+                infoContent = "<h3>" + data.city.name + "</h3><img src='" + iconUrl + "' alt='Icon'>" + "<h3>" + Math.round(data.list[0].temp.max) + "/&deg" + Math.round(data.list[0].temp.min) + "&deg";
                 infowindow.setContent(infoContent);
             });
             $("#currentCity").html(data.city.name);  //update current city
