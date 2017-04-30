@@ -21,38 +21,27 @@ body {
 #weatherContainer {
     background-color: darkblue;
     margin: 0 auto;
-    margin-bottom: 0;
     width: 90%;
 }
-.threeDayBox {
+.weatherBoxDivs {
     background-color: #ffffff;
+    text-align: center;
+    border-bottom: 2px solid #b0b0b0;
+    display: none;
+    border-right: 2px solid #b0b0b0;
+    margin-right: -4px;
+}
+.three {
     width: 30%;
-    text-align: center;
-    border-bottom: 2px solid #b0b0b0;
-    display: inline-block;
-    border-right: 2px solid #b0b0b0;
-    margin-right: -4px;
 }
-.fiveDayBox{
-    background-color: #ffffff;
+.fiveTens {
     width: 19%;
-    text-align: center;
-    border-bottom: 2px solid #b0b0b0;
-    border-right: 2px solid #b0b0b0;
-    margin-right: -4px;
-    display: none;
 }
-.tenDayBox {
-    background-color: #ffffff;
-    width: 19%;
-    text-align: center;
-    border-bottom: 2px solid #b0b0b0;
-    border-right: 2px solid #b0b0b0;
-    margin-right: -4px;
-    display: none;
+
+.active{
+    display: inline-block !important;
 }
 .todayBox {
-    /*background-color: #ffffff;*/
     width: 95%;
     text-align: center;
     border-bottom: 2px solid #b0b0b0;
@@ -63,6 +52,7 @@ body {
     background: -o-linear-gradient(right, #fff, #A3CCFF); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right, #fff, #A3CCFF); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to right, #fff , #A3CCFF); /* Standard syntax */
+
 }
 
 p {
